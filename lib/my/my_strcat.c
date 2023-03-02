@@ -17,7 +17,7 @@ char *my_strcat(char *dest, char const *src)
     char *temps = malloc(sizeof(char) * ((i + my_strlen(src)) + 1));
 
     if (dest == NULL || src == NULL)
-        return my_strdup((dest == NULL) ? dest : src);
+        return my_strdup((dest == NULL) ? src : dest);
     for (int x = 0; x <= (i + my_strlen(src)); x++)
         temps[x] = '\0';
     temps = my_strcpy(temps, dest);
