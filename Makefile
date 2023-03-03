@@ -8,9 +8,9 @@
 MAKEFLAGS += -silent
 CC = gcc
 
-VPATH +=
+VPATH += src/
 
-SRC +=
+SRC += paint.c
 
 CFLAGS = -I include/ -Wall -Wextra
 
@@ -18,7 +18,7 @@ LDFLAGS = -L lib/
 
 BUILD_DIR = build/
 
-NAME =
+NAME = paint
 
 DEBUG ?= 1
 ifeq ($(DEBUG), 1)
