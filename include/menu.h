@@ -27,16 +27,4 @@ typedef struct list_menu {
     int *list_menu;
 }list_menu_t;
 
-
-int *add_visible_menu(int *actual_list, int menu);
-int *delete_visible_menu(int *actual_list, int index);
-menu_t *get_menu_by_id(int id, list_menu_t *list_menu);
-list_menu_t *create_base_menu(void);
-void add_button_in_his_menu(list_menu_t *list_menu);
-void print_button_menu(list_menu_t *list_menu, sfRenderWindow *window);
-void is_click(sfMouseButtonEvent event, void *window, button_t *button,\
-list_menu_t *list_menu);
-void verify_menu_click(sfMouseButtonEvent event, void *window,\
-list_menu_t *menu_list);
-void button_menu_is_clicked(void *standby, int id);
 #endif /*MENU_H_*/

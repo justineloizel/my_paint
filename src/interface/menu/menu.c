@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "menu.h"
+#include "paint.h"
 
 static const menu_store_t menu_list[] = {
         {1, {1, "assets/restart_but.png", {500, 40}, {1, 1}, {0, 0, 80, 32},

@@ -5,7 +5,7 @@
 ** menu_manager.c
 */
 
-#include "menu.h"
+#include "paint.h"
 
 int is_visible_menu(int id, int const *list)
 {
@@ -26,20 +26,19 @@ void print_button_menu(list_menu_t *list_menu, sfRenderWindow *window)
     }
 }
 
-void verify_menu_click(sfMouseButtonEvent event, void *window,
-list_menu_t *menu_list)
+void verify_menu_click(sfMouseButtonEvent event, main_t *storage)
 {
-    menu_t *menu = menu_list->head;
+    menu_t *menu = storage->list_menu->head;
     for (; menu != NULL; menu = menu->next) {
-        is_click(event, window, menu->menu_button, menu_list);
-        if (is_visible_menu(menu->id, menu_list->list_menu) != -1)
-            is_click(event, window, menu->button_list->head, menu_list);
+        is_click(event, storage, menu->menu_button);
+        if (is_visible_menu(menu->id, storage->list_menu->list_menu) != -1)
+            is_click(event, storage, menu->button_list->head);
     }
 }
 
-void button_menu_is_clicked(void *standby, int id)
+void button_menu_is_clicked(void *storage, int id)
 {
-    list_menu_t *menus = standby;
+    list_menu_t *menus = ((main_t *)storage)->list_menu;
     int index = is_visible_menu(id, menus->list_menu);
     if (index != -1) {
         menus->list_menu = delete_visible_menu(menus->list_menu, index);

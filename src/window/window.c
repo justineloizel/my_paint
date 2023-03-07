@@ -10,7 +10,7 @@
 window_t init_window(void)
 {
     window_t window;
-    window.mode = (sfVideoMode){900, 700, 32};
+    window.mode = (sfVideoMode){1920, 1080, 32};
     window.window = sfRenderWindow_create(window.mode, "My Paint",
                                         sfDefaultStyle, NULL);
     window.clock = sfClock_create();
