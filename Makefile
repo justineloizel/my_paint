@@ -9,12 +9,24 @@ MAKEFLAGS += -silent
 CC = gcc
 
 VPATH += src/
+VPATH += src/interface
+VPATH += src/interface/menu
+VPATH += src/interface/button
+VPATH += src/window
 
 SRC += paint.c
+SRC += button.c
+SRC += menu.c
+SRC += display_menu_manager.c
+SRC += manager_button.c
+SRC += menu_manager.c
+SRC += window.c
 
 CFLAGS = -I include/ -Wall -Wextra
 
-LDFLAGS = -L lib/
+LDFLAGS = -L lib/ -lmy -lprint
+
+SFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 BUILD_DIR = build/
 
@@ -35,8 +47,10 @@ OBJ = $(SRC:%.c=$(BUILD_DIR)%.o)
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
+	make -C lib/my/
+	make -C lib/my_printf/
 	@ echo "$(BLUE)Compilation of $(NAME)...$(NC)"
-	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS) $(SFML)
 	@ echo "$(GREEN)$(NAME) created$(NC)"
 
 clean:
