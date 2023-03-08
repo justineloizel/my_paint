@@ -13,6 +13,8 @@ VPATH += src/interface
 VPATH += src/interface/menu
 VPATH += src/interface/button
 VPATH += src/window
+VPATH += src/draw
+VPATH += src/init_destroy
 
 SRC += paint.c
 SRC += button.c
@@ -21,6 +23,9 @@ SRC += display_menu_manager.c
 SRC += manager_button.c
 SRC += menu_manager.c
 SRC += window.c
+SRC += put_pixel.c
+SRC += init.c
+SRC += destroy.c
 
 CFLAGS = -I include/ -Wall -Wextra
 

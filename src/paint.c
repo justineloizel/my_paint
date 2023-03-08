@@ -24,19 +24,26 @@ void event_manager(sfEvent event, main_t *storage)
     }
 }
 
+void paint(main_t *storage)
+{
+    sfEvent event;
+    while (sfRenderWindow_isOpen(storage->window.window)) {
+        sfRenderWindow_clear(storage->window.window, (sfColor){47, 129, 121, 1});
+        event_manager(event, storage);
+        if (sfMouse_isButtonPressed(sfMouseLeft))
+            draw_object(storage->board, V2F_V2I(get_valid_position(storage, V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)))));
+        sfRenderWindow_drawSprite(storage->window.window, storage->board->fb->sprite, NULL);
+        print_button_menu(storage->list_menu, storage->window.window);
+        sfRenderWindow_display(storage->window.window);
+    }
+}
+
 int main(void)
 {
-    main_t storage = {init_window(), create_base_menu()};
-    sfEvent event;
-    add_button_in_his_menu(storage.list_menu);
-    storage.list_menu->list_menu = add_visible_menu(\
-    storage.list_menu->list_menu, 1);
-    while (sfRenderWindow_isOpen(storage.window.window)) {
-        sfRenderWindow_clear(storage.window.window, sfBlack);
-        event_manager(event, &storage);
-        print_button_menu(storage.list_menu, storage.window.window);
-        sfRenderWindow_display(storage.window.window);
-    }
-    free_window(&(storage.window));
+    main_t *storage = init_storage();
+    if (storage == NULL)
+        return 84;
+    paint(storage);
+    destroy_storage(storage);
     return 0;
 }

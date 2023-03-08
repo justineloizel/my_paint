@@ -5,7 +5,14 @@
 ** window.c
 */
 
-#include "window.h"
+#include "paint.h"
+
+sfVector2f get_valid_position(main_t *storage, sfVector2f position)
+{
+    position = sfRenderWindow_mapPixelToCoords(WINDOW.window,\
+    V2F_V2I(position), WINDOW.view);
+    return position;
+}
 
 window_t init_window(void)
 {
@@ -14,6 +21,7 @@ window_t init_window(void)
     window.window = sfRenderWindow_create(window.mode, "My Paint",
                                         sfDefaultStyle, NULL);
     window.clock = sfClock_create();
+    window.view = sfRenderWindow_getView(window.window);
     sfRenderWindow_setFramerateLimit(window.window, 40);
     sfRenderWindow_setMouseCursorVisible(window.window, 1);
     return window;

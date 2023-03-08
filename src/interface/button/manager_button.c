@@ -73,4 +73,3 @@ void recalcul_position_menu(main_t *storage)
         recalcul_pos_button(screen_size, menu->button_list->head);
     }
 }
-//10 * (taille actuelle / taille base)

@@ -5,7 +5,7 @@
 ** button.c
 */
 
-#include "menu.h"
+#include "paint.h"
 #include "myprintf.h"
 
 static const button_store_t button_list[] = {
@@ -16,7 +16,7 @@ static const button_store_t button_list[] = {
         {0, 32, 65, 32}, {0, 64, 65, 32}, NULL},
 
         {1,"assets/quit_but.png", {350, 350}, {1, 1}, {0, 0, 65, 32},\
-        {0, 32, 65, 32}, {0, 64, 65, 32}, NULL},
+        {0, 32, 65, 32}, {0, 64, 65, 32}, NULL}
 };
 
 void set_button(button_t *button)
@@ -57,6 +57,8 @@ void add_button(button_store_t data, list_button_t *button_list)
         return;
     }
     button_list->tail->next = init_button(data);
+    if (button_list->tail->next == NULL)
+        return;
     button_list->tail->next->prev = button_list->tail;
     button_list->tail = button_list->tail->next;
 }

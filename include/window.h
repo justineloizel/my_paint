@@ -18,6 +18,7 @@ typedef struct window {
     sfRenderWindow *window;
     sfVideoMode mode;
     sfClock *clock;
+    sfView const *view;
 }window_t;
 window_t init_window(void);
 void free_window(window_t *window);
