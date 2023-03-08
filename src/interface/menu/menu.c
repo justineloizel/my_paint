@@ -9,8 +9,10 @@
 #include "paint.h"
 
 static const menu_store_t menu_list[] = {
-        {1, {1, "assets/restart_but.png", {500, 40}, {1, 1}, {0, 0, 80, 32},
-        {0, 32, 80, 32},{0, 64, 80, 32}, button_menu_is_clicked}}
+        {1, {1, "assets/restart_but.png", {10, 10}, {1, 1}, {0, 0, 80, 32},
+        {0, 32, 80, 32},{0, 64, 80, 32}, button_menu_is_clicked}},
+
+
 };
 
 menu_t *init_menu(menu_store_t data)
@@ -22,7 +24,7 @@ menu_t *init_menu(menu_store_t data)
     menu->id = data.id;
     menu->menu_button = init_button(data.button);
     menu->button_list = malloc(sizeof(list_button_t));
-    if (menu->button_list == NULL)
+    if (menu->button_list == NULL || menu->menu_button == NULL)
         return NULL;
     menu->button_list->head = NULL;
     menu->button_list->tail = NULL;
@@ -39,6 +41,8 @@ void add_new_menu(menu_store_t data, list_menu_t *list_menu)
         return;
     }
     list_menu->tail->next = init_menu(data);
+    if (list_menu->tail->next == NULL)
+        return;
     list_menu->tail->next->prev = list_menu->tail;
     list_menu->tail = list_menu->tail->next;
 }

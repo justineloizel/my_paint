@@ -7,7 +7,7 @@
 
 int my_compute_square_root(int nb)
 {
-    int stock;
+    int stock = -78787;
     int val = 0;
 
     if (nb == 1)
