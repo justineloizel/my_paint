@@ -14,6 +14,7 @@ VPATH += src/interface/menu
 VPATH += src/interface/button
 VPATH += src/window
 VPATH += src/draw
+VPATH += src/draw/layer
 VPATH += src/init_destroy
 
 SRC += paint.c
@@ -27,6 +28,7 @@ SRC += put_pixel.c
 SRC += init.c
 SRC += destroy.c
 SRC += manage_draw.c
+SRC += layer.c
 
 CFLAGS = -I include/ -Wall -Wextra
 

@@ -9,15 +9,15 @@
 
 void board_destroy(board_t *board)
 {
-    free(board->fb->pixels);
-    sfTexture_destroy(board->fb->texture);
-    sfSprite_destroy(board->fb->sprite);
+    while (board->layerList->head != NULL) {
+        delete_layer(board->layerList, board->layerList->head);
+    }
+    sfRectangleShape_destroy(board->board);
     sfClock_destroy(board->clock);
-    free(board->fb);
     free(board);
 }
 
-static framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
 {
     framebuffer_t *framebuffer;
 
@@ -35,6 +35,8 @@ static framebuffer_t *framebuffer_create(unsigned int width, unsigned int height
         return (NULL);
     sfSprite_setTexture(framebuffer->sprite, framebuffer->texture, sfTrue);
     sfSprite_setPosition(framebuffer->sprite, (sfVector2f){0, 0});
+    framebuffer->next = NULL;
+    framebuffer->prev = NULL;
     return (framebuffer);
 }
 
@@ -42,11 +44,15 @@ board_t *board_create(unsigned int width, unsigned int height)
 {
     board_t *board = malloc(sizeof(board_t));
 
-    board->fb = framebuffer_create(width, height);
+    board->layerList = init_layer();
+    if (board->layerList == NULL)
+        return NULL;
+    board->actual_layer = board->layerList->head;
     board->color = sfCyan;
     board->board = sfRectangleShape_create();
     board->clock = sfClock_create();
-    if (board->fb == NULL || board->board == NULL || board->clock == NULL)
+    if (board->actual_layer == NULL || board->board == NULL
+    || board->clock == NULL)
         return (NULL);
     board->size = 10;
     sfRectangleShape_setFillColor(board->board, sfWhite);
@@ -72,13 +78,13 @@ void draw_object(board_t *board, sfVector2i position)
     position.x -= board->size / 2;
     position.y -= board->size / 2;
 
-    //correction_draw(board, position);
+//    correction_draw(board, position);
     for (int i = 0; i < board->size; i++) {
         for (int j = 0; j < board->size; j++) {
-            put_pixel(board->fb, position.x + j, position.y + i, board->color);
+            put_pixel(board->actual_layer, position.x + j, position.y + i, board->color);
         }
     }
-    sfTexture_updateFromPixels(board->fb->texture, board->fb->pixels,\
+    sfTexture_updateFromPixels(board->actual_layer->texture, board->actual_layer->pixels,\
     1920, 1080, 0, 0);
     sfClock_restart(board->clock);
 }

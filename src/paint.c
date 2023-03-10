@@ -32,7 +32,7 @@ void paint(main_t *storage)
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
         manage_draw(storage);
-        sfRenderWindow_drawSprite(storage->window.window, storage->board->fb->sprite, NULL);
+        sfRenderWindow_drawSprite(storage->window.window, storage->board->actual_layer->sprite, NULL);
         print_button_menu(storage->list_menu, storage->window.window);
         sfRenderWindow_display(storage->window.window);
     }

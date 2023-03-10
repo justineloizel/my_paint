@@ -60,6 +60,9 @@ void recalcul_pos_button(sfVector2u size, button_t *button)
         new_position.x *= ((float)size.x / 1920);
         new_position.y *= ((float)size.y / 1080);
         sfSprite_setPosition(button->sprite, new_position);
+        sfSprite_setScale(button->sprite, (sfVector2f)
+        {button->scale.x / ((float)size.x / 1920),
+         button->scale.y / ((float)size.y / 1080)});
     }
 }
 

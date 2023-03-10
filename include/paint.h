@@ -16,6 +16,7 @@
     #include <math.h>
     #include "window.h"
     #include "menu.h"
+    #include "layer.h"
 
     #define WINDOW storage->window
     #define MENU_LIST storage->list_menu
@@ -32,10 +33,13 @@ typedef struct framebuffer_t
     unsigned int height;
     sfTexture *texture;
     sfSprite *sprite;
+    struct framebuffer_t *next;
+    struct framebuffer_t *prev;
 } framebuffer_t;
 
 typedef struct board {
-    framebuffer_t *fb;
+    layer_list_t *layerList;
+    framebuffer_t *actual_layer;
     sfColor color;
     int size;
     sfClock *clock;
@@ -66,6 +70,8 @@ sfVector2f get_valid_position(main_t *storage, sfVector2f position);
         list_menu_t *create_base_menu(void);
         void add_button_in_his_menu(list_menu_t *list_menu);
         board_t *board_create(unsigned int width, unsigned int height);
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
+layer_list_t *init_layer(void);
 
 //manage
         void manage_draw(main_t *storage);
@@ -75,4 +81,6 @@ sfVector2f get_valid_position(main_t *storage, sfVector2f position);
         void destroy_storage(main_t *storage);
         void board_destroy(board_t *board);
         void board_destroy(board_t *board);
+        void delete_framebuffer(framebuffer_t *fb);
+void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
 #endif
