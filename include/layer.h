@@ -10,6 +10,6 @@ typedef struct framebuffer_t framebuffer_t;
 typedef  struct layer_list {
     framebuffer_t *head;
     framebuffer_t *tail;
-    int *nb_layer;
+    int nb_layer;
 }layer_list_t;
 #endif /*LAYER_H_*///

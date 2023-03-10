@@ -12,6 +12,7 @@ void add_layer(layer_list_t *list)
     if (list->head == NULL) {
         list->head = framebuffer_create(1920, 1080);
         list->tail = list->head;
+        list->nb_layer += 1;
         return;
     }
     list->tail->next = framebuffer_create(1920, 1080);
@@ -19,7 +20,7 @@ void add_layer(layer_list_t *list)
         return;
     list->tail->next->prev = list->tail;
     list->tail = list->tail->next;
-    (*list->nb_layer)++;
+    list->nb_layer += 1;
 }
 
 layer_list_t *init_layer(void)
@@ -56,4 +57,10 @@ void delete_layer(layer_list_t *layer_list, framebuffer_t *target)
     delete_framebuffer(tmp);
 }
 
+void print_layer(main_t *storage)
+{
+    framebuffer_t *fb = storage->board->layerList->head;
 
+    for (; fb != NULL; fb = fb->next)
+        sfRenderWindow_drawSprite(storage->window.window, fb->sprite, NULL);
+}

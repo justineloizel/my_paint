@@ -16,7 +16,7 @@ int is_board(main_t *storage)
     sfVector2f mouse_pos = get_valid_position(storage,
     V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
 
-    if (mouse_pos.x >= pos_board.x + (float)(BOARD->size / 2)&&
+    if (mouse_pos.x >= pos_board.x + (float)(BOARD->size / 2) &&
     mouse_pos.x <= pos_board.x + size_board.x - (BOARD->size / 2)
     && mouse_pos.y >= pos_board.y + (BOARD->size / 2) &&
     mouse_pos.y <= pos_board.y + size_board.y - (float)(BOARD->size / 2))
@@ -33,34 +33,12 @@ void manage_draw(main_t *storage)
 
 int is_around(sfVector2i position_f, sfVector2i position_a, int size)
 {
-    sfVector2i vector = {position_f.x - position_a.x, position_f.y - position_a.y};
+    sfVector2i vector = {position_f.x - position_a.x, \
+    position_f.y - position_a.y};
     int norm = (position_f.x - position_a.x) + (position_f.y - position_a.y);
     if (norm < size) {
         my_printf("ok\n");
         return 1;
     }
     return 0;
-}
-
-void correction_draw(board_t *board , sfVector2i position)
-{
-    static sfVector2i old_pos = {1, 1};
-    static int first = 1;
-    int j = position.y;
-    sfVector2f vector = {(float)(position.x - old_pos.x), (float)(position.y - old_pos.y)};
-//    int norm = my_compute_square_root((int)(vector.x * vector.x + vector.y * vector.y));
-    sfTime time = sfClock_getElapsedTime(board->clock);
-    if (!first) {//sfTime_asSeconds(time) < 0.8
-//        for (int i = 0; !is_around(position, (sfVector2i){i, j}, board->size);) {
-        for (int i = 0; is_around(position, (sfVector2i){i, j}, board->size) == 0;) {
-            if (DIR_X)
-                i += (vector.x < 0) ? board->size * -1: board->size;
-            if (DIR_Y)
-                j += (vector.y < 0) ? board->size * -1: board->size;
-            draw_object(board, (sfVector2i){i, j});
-            my_printf("i = %d, j = %d\r", i, j);
-        }
-    }
-    first = 0;
-    old_pos = position;
 }
