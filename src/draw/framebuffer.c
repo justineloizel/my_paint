@@ -45,6 +45,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
     if (framebuffer->texture == NULL || framebuffer->sprite == NULL) {
         return (NULL);
     }
+    set_framebuffer(framebuffer);
     return (framebuffer);
 }
 
