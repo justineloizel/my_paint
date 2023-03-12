@@ -5,7 +5,7 @@
 ** paint.c
 */
 
-
+#include "myprintf.h"
 #include "paint.h"
 
 void event_manager(sfEvent event, main_t *storage)
@@ -21,6 +21,15 @@ void event_manager(sfEvent event, main_t *storage)
         if (event.type == sfEvtResized) {
             recalcul_position_menu(storage);
         }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
+            add_layer(storage->board->layerList);
+            storage->board->actual_layer = storage->board->layerList->tail;
+        }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
+            storage->board->actual_layer = storage->board->layerList->tail->prev;
+            delete_layer(storage->board->layerList,
+            storage->board->layerList->tail);
+        }
     }
 }
 
@@ -28,11 +37,12 @@ void paint(main_t *storage)
 {
     sfEvent event;
     while (sfRenderWindow_isOpen(storage->window.window)) {
-        sfRenderWindow_clear(storage->window.window, (sfColor){47, 129, 121, 1});
+        sfRenderWindow_clear(storage->window.window,
+        (sfColor){47, 129, 121, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
         manage_draw(storage);
-        sfRenderWindow_drawSprite(storage->window.window, storage->board->fb->sprite, NULL);
+        print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
         sfRenderWindow_display(storage->window.window);
     }

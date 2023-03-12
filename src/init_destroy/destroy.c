@@ -49,3 +49,11 @@ void destroy_storage(main_t *storage)
     board_destroy(storage->board);
     free(storage);
 }
+
+void delete_framebuffer(framebuffer_t *fb)
+{
+    sfTexture_destroy(fb->texture);
+    sfSprite_destroy(fb->sprite);
+    free(fb->pixels);
+    free(fb);
+}

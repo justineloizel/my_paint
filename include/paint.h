@@ -16,26 +16,31 @@
     #include <math.h>
     #include "window.h"
     #include "menu.h"
+    #include "layer.h"
 
     #define WINDOW storage->window
     #define MENU_LIST storage->list_menu
     #define  BOARD storage->board
-    #define V2I_V2F(X) (sfVector2f){X.x, X.y}
-    #define V2F_V2I(X) (sfVector2i){X.x, X.y}
-#define DIR_X (vector.x < 0) ? (i > position.x) ? 1 : 0 : (i < position.x) ? 1 : 0
-#define DIR_Y (vector.y < 0) ? (j > position.y) ? 1 : 0 : (j < position.y) ? 1 : 0
+    #define V2I_V2F(X) (sfVector2f){ \
+    X.x, X.y                         \
+    }
+    #define V2F_V2I(X) (sfVector2i){\
+    X.x, X.y                        \
+    }
 
-typedef struct framebuffer_t
-{
+typedef struct framebuffer_t    {
     sfUint8 *pixels;
     unsigned int width;
     unsigned int height;
     sfTexture *texture;
     sfSprite *sprite;
+    struct framebuffer_t *next;
+    struct framebuffer_t *prev;
 } framebuffer_t;
 
 typedef struct board {
-    framebuffer_t *fb;
+    layer_list_t *layerList;
+    framebuffer_t *actual_layer;
     sfColor color;
     int size;
     sfClock *clock;
@@ -66,13 +71,20 @@ sfVector2f get_valid_position(main_t *storage, sfVector2f position);
         list_menu_t *create_base_menu(void);
         void add_button_in_his_menu(list_menu_t *list_menu);
         board_t *board_create(unsigned int width, unsigned int height);
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
+layer_list_t *init_layer(void);
+void add_layer(layer_list_t *list);
 
 //manage
         void manage_draw(main_t *storage);
         void correction_draw(board_t *board , sfVector2i position);
+        void print_layer(main_t *storage);
+
 
 //destroy
         void destroy_storage(main_t *storage);
         void board_destroy(board_t *board);
         void board_destroy(board_t *board);
+        void delete_framebuffer(framebuffer_t *fb);
+void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
 #endif

@@ -12,12 +12,15 @@
 void is_hover(button_t *button, sfRenderWindow *window)
 {
     sfVector2f pos = sfSprite_getPosition(button->sprite);
-    sfVector2f pos_mouse = sfRenderWindow_mapPixelToCoords(window,\
+    sfVector2f pos_mouse = sfRenderWindow_mapPixelToCoords(window,
     sfMouse_getPositionRenderWindow(window),sfRenderWindow_getView(window));
-    sfVector2f size = {sfSprite_getLocalBounds(button->sprite).width,\
+    sfVector2f size = {sfSprite_getLocalBounds(button->sprite).width,
     sfSprite_getGlobalBounds(button->sprite).height};
-    if ((pos_mouse.x > pos.x && pos_mouse.x < (pos.x + size.x)) &&
-        (pos_mouse.y > pos.y && pos_mouse.y < (pos.y + size.y))) {
+    sfVector2u screen_size = sfRenderWindow_getSize(window);
+    sfVector2f scale =  {button->scale.x / ((float)screen_size.x / 1920),
+    button->scale.y / ((float)screen_size.y / 1080)};
+    if ((pos_mouse.x > pos.x && pos_mouse.x < (pos.x + size.x * scale.x)) &&
+        (pos_mouse.y > pos.y && pos_mouse.y < (pos.y + size.y * scale.y))) {
         sfSprite_setTextureRect(button->sprite, button->rec_hover);
         return;
     }
@@ -32,8 +35,12 @@ void is_click(sfMouseButtonEvent event, main_t *storage, button_t *button)
     (sfVector2i){event.x, event.y}, sfRenderWindow_getView(WINDOW.window));
     sfVector2f pos = {sfSprite_getPosition(button->sprite).x,\
     sfSprite_getPosition(button->sprite).y};
-    if (clic.x > pos.x && clic.x < (pos.x + size.x) && clic.y > pos.y &&
-        clic.y < (pos.y + size.y) && button->fct != NULL) {
+    sfVector2u screen_size = sfRenderWindow_getSize(WINDOW.window);
+    sfVector2f scale =  {button->scale.x / ((float)screen_size.x / 1920),
+                         button->scale.y / ((float)screen_size.y / 1080)};
+    if (clic.x > pos.x && clic.x < (pos.x + size.x * scale.x) &&
+    clic.y > pos.y && clic.y < (pos.y + size.y * scale.y) &&
+    button->fct != NULL) {
         button->fct(storage, button->menu_id);
     }
     if (button->next == NULL)
@@ -60,6 +67,9 @@ void recalcul_pos_button(sfVector2u size, button_t *button)
         new_position.x *= ((float)size.x / 1920);
         new_position.y *= ((float)size.y / 1080);
         sfSprite_setPosition(button->sprite, new_position);
+        sfSprite_setScale(button->sprite, (sfVector2f)
+        {button->scale.x / ((float)size.x / 1920),
+        button->scale.y / ((float)size.y / 1080)});
     }
 }
 
