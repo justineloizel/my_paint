@@ -31,7 +31,8 @@ void verify_menu_click(sfMouseButtonEvent event, main_t *storage)
     menu_t *menu = storage->list_menu->head;
     for (; menu != NULL; menu = menu->next) {
         is_click(event, storage, menu->menu_button);
-        if (is_visible_menu(menu->id, storage->list_menu->list_menu) != -1)
+        if (is_visible_menu(menu->id, storage->list_menu->list_menu) != -1 &&
+        menu->button_list->head != NULL)
             is_click(event, storage, menu->button_list->head);
     }
 }
