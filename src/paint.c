@@ -44,6 +44,9 @@ void paint(main_t *storage)
         manage_draw(storage);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
+        if (storage->window.cursor == 1) {
+            display_cursor(storage);
+        }
         sfRenderWindow_display(storage->window.window);
     }
 }

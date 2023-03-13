@@ -24,6 +24,10 @@ window_t init_window(void)
     window.view = sfRenderWindow_getView(window.window);
     sfRenderWindow_setFramerateLimit(window.window, 40);
     sfRenderWindow_setMouseCursorVisible(window.window, 1);
+    window.pencil = sfSprite_create();
+    window.pen_texture = sfTexture_createFromFile("assets/pen.png", NULL);
+    window.cursor = 0;
+    sfSprite_setTexture(window.pencil, window.pen_texture, sfTrue);
     return window;
 }
 

@@ -19,7 +19,7 @@ static const button_store_t button_list[] = {
         {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
 
         {2, "assets/pencil_but.png", {90, 39}, {1, 1}, {0, 0, 80, 32},\
-        {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
+        {0, 32, 80, 32}, {0, 64, 80, 32}, drawing_activated},
 
         {2,"assets/eraser.png", {90, 68}, {1, 1}, {0, 0, 80, 32},\
         {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},

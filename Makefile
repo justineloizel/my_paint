@@ -30,8 +30,9 @@ SRC += destroy.c
 SRC += manage_draw.c
 SRC += layer.c
 SRC += framebuffer.c
+SRC += pencil.c
 
-CFLAGS = -I include/ -Wall -Wextra
+CFLAGS = -I include/ -Wall -Wextra -g
 
 LDFLAGS = -L lib/ -lmy -lprint
 

@@ -16,8 +16,13 @@
 
 typedef struct window {
     sfRenderWindow *window;
+    sfSprite *pencil;
+    sfTexture *pen_texture;
+    sfVector2f pen_pos;
+    sfIntRect pen_dim;
     sfVideoMode mode;
     sfClock *clock;
+    int cursor;
     sfView const *view;
 }window_t;
 window_t init_window(void);
