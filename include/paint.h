@@ -79,12 +79,25 @@ void add_layer(layer_list_t *list);
         void manage_draw(main_t *storage);
         void correction_draw(board_t *board , sfVector2i position);
         void print_layer(main_t *storage);
+        void save_drawing_to_jpg(main_t *storage, int id);
+        void save_drawing_to_png(main_t *storage, int id);
+        void fill_framebuffer(framebuffer_t *framebuffer, sfColor color);
 
 
 //destroy
         void destroy_storage(main_t *storage);
         void board_destroy(board_t *board);
-        void board_destroy(board_t *board);
         void delete_framebuffer(framebuffer_t *fb);
-void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
+        void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
+
+//brush
+        void draw_filled_square(board_t *board, sfVector2i position);
+        void draw_square(board_t *board, sfVector2i position);
+        void draw_filled_circle(board_t *board, sfVector2i center);
+        void draw_circle(board_t *board, sfVector2i position);
+        void draw_filled_triangle(board_t *board, sfVector2i position);
+        void draw_triangle(board_t *board, sfVector2i position);
+        void draw_triangle_reverse(board_t *board, sfVector2i position);
+        void draw_triangle_reverse_filled(board_t *board, sfVector2i position);
+
 #endif
