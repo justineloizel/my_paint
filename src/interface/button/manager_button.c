@@ -41,8 +41,6 @@ void is_click(sfMouseButtonEvent event, main_t *storage, button_t *button)
     if (IS_CLICk && button->fct != NULL) {
         sfSprite_setTextureRect(button->sprite, button->rec_click);
         sfRenderWindow_drawSprite(WINDOW.window, button->sprite, NULL);
-        sfSleep(sfSeconds((float)0.05));
-        sfRenderWindow_display(WINDOW.window);
         button->fct(storage, button->menu_id);
     }
     if (button->next == NULL || button == NULL)

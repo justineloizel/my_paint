@@ -14,4 +14,5 @@ void new_file(void *storage, int id)
     board_destroy(((main_t *)storage)->board);
     ((main_t *)storage)->board = board_create(1920, 1080);
     add_layer(((main_t *)storage)->board->layerList);
+    ((main_t *)storage)->board->actual_layer = ((main_t *)storage)->board->layerList->head;
 }
