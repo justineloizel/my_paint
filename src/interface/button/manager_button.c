@@ -38,12 +38,14 @@ void is_click(sfMouseButtonEvent event, main_t *storage, button_t *button)
     sfVector2u screen_size = sfRenderWindow_getSize(WINDOW.window);
     sfVector2f scale =  {button->scale.x / ((float)screen_size.x / 1920),
                          button->scale.y / ((float)screen_size.y / 1080)};
-    if (clic.x > pos.x && clic.x < (pos.x + size.x * scale.x) &&
-    clic.y > pos.y && clic.y < (pos.y + size.y * scale.y) &&
-    button->fct != NULL) {
+    if (IS_CLICk && button->fct != NULL) {
+        sfSprite_setTextureRect(button->sprite, button->rec_click);
+        sfRenderWindow_drawSprite(WINDOW.window, button->sprite, NULL);
+        sfSleep(sfSeconds((float)0.05));
+        sfRenderWindow_display(WINDOW.window);
         button->fct(storage, button->menu_id);
     }
-    if (button->next == NULL)
+    if (button->next == NULL || button == NULL)
         return;
     is_click(event, storage, button->next);
 }

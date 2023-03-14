@@ -10,12 +10,12 @@
 void add_layer(layer_list_t *list)
 {
     if (list->head == NULL) {
-        list->head = framebuffer_create(1920, 1080);
+        list->head = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
         list->tail = list->head;
         list->nb_layer += 1;
         return;
     }
-    list->tail->next = framebuffer_create(1920, 1080);
+    list->tail->next = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     if (list->tail->next == NULL)
         return;
     list->tail->next->prev = list->tail;
