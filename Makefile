@@ -31,6 +31,7 @@ SRC += manage_draw.c
 SRC += layer.c
 SRC += framebuffer.c
 SRC += pencil.c
+SRC += new_file.c
 
 CFLAGS = -I include/ -Wall -Wextra -g
 

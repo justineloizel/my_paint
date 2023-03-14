@@ -41,12 +41,12 @@ void paint(main_t *storage)
         (sfColor){47, 129, 121, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
-        // manage_draw(storage);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
-        if (storage->window.cursor > 0) {
+        if (storage->window.cursor > 0)
             display_cursor(storage);
-        }
+        else
+            sfRenderWindow_setMouseCursorVisible(storage->window.window, 1);
         sfRenderWindow_display(storage->window.window);
     }
 }
