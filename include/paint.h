@@ -56,6 +56,7 @@ typedef struct main_s {
 int *add_visible_menu(int *actual_list, int menu);
 void drawing_activated(void *storage, int id);
 void display_cursor(main_t *storage);
+void eraser_activated(void *storage, int id);
 int *delete_visible_menu(int *actual_list, int index);
 menu_t *get_menu_by_id(int id, list_menu_t *list_menu);
 void print_button_menu(list_menu_t *list_menu, sfRenderWindow *window);

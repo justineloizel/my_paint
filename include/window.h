@@ -20,6 +20,10 @@ typedef struct window {
     sfTexture *pen_texture;
     sfVector2f pen_pos;
     sfIntRect pen_dim;
+    sfSprite *eraser;
+    sfTexture *eraser_texture;
+    sfVector2f eraser_pos;
+    sfIntRect eraser_dim;
     sfVideoMode mode;
     sfClock *clock;
     int cursor;

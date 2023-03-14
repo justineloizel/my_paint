@@ -41,10 +41,10 @@ void paint(main_t *storage)
         (sfColor){47, 129, 121, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
-        manage_draw(storage);
+        // manage_draw(storage);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
-        if (storage->window.cursor == 1) {
+        if (storage->window.cursor > 0) {
             display_cursor(storage);
         }
         sfRenderWindow_display(storage->window.window);

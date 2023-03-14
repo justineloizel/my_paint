@@ -28,6 +28,9 @@ window_t init_window(void)
     window.pen_texture = sfTexture_createFromFile("assets/pen.png", NULL);
     window.cursor = 0;
     sfSprite_setTexture(window.pencil, window.pen_texture, sfTrue);
+    window.eraser = sfSprite_create();
+    window.eraser_texture = sfTexture_createFromFile("assets/gomme.png", NULL);
+    sfSprite_setTexture(window.eraser, window.eraser_texture, sfTrue);
     return window;
 }
 
