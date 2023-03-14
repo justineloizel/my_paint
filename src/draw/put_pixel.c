@@ -10,10 +10,10 @@
 #include "paint.h"
 
 brush_store_t brush_list[] = {
+        {draw_filled_circle},
+        {draw_circle},
         {draw_square},
         {draw_filled_square},
-        {draw_circle},
-        {draw_filled_circle},
         {draw_triangle},
         {draw_filled_triangle},
         {draw_triangle_reverse},
@@ -36,12 +36,8 @@ void draw_object(board_t *board, sfVector2i position)
 {
     position.x -= (board->size / 2) + (int)POS_BOARD.x;
     position.y -= (board->size / 2) + (int)POS_BOARD.y;
-    for (int i = 0; i < board->size; i++) {
-        for (int j = 0; j < board->size; j++) {
-            put_pixel(board->actual_layer, position.x + j, position.y + i,
-            board->color);
-        }
-    }
+
+    brush_list[board->tools].brush(board, position);
     sfTexture_updateFromPixels(board->actual_layer->texture,
     board->actual_layer->pixels,\
     SIZE_BOARD.x, SIZE_BOARD.y, 0, 0);

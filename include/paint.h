@@ -43,6 +43,7 @@ typedef struct board {
     framebuffer_t *actual_layer;
     sfColor color;
     int size;
+    int tools;
     sfClock *clock;
     sfRectangleShape *board;
 }board_t;

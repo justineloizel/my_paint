@@ -14,13 +14,17 @@
     }
     #define UNUSED __attribute__((unused))
 typedef struct board board_t;
+typedef struct main_s main_t;
 typedef struct framebuffer_t framebuffer_t;
+
 typedef  struct layer_list {
     framebuffer_t *head;
     framebuffer_t *tail;
     int nb_layer;
 }layer_list_t;
+
 typedef struct brush_store {
     void (*brush)(board_t *board, sfVector2i position);
 }brush_store_t;
+void manager_delete_layer(main_t *storage, UNUSED int id);
 #endif /*LAYER_H_*///

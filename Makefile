@@ -38,6 +38,7 @@ SRC += save_drawing.c
 SRC += brush_square.c
 SRC += brush_triangle.c
 SRC += brush_circle.c
+SRC += layer_manager.c
 
 CFLAGS = -I include/ -Wall -Wextra -g
 

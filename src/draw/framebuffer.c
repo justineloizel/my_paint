@@ -66,6 +66,7 @@ board_t *board_create(unsigned int width, unsigned int height)
         || board->clock == NULL)
         return (NULL);
     board->size = 10;
+    board->tools = 0;
     sfRectangleShape_setFillColor(board->board, sfWhite);
     sfRectangleShape_setSize(board->board, SIZE_BOARD);
     sfRectangleShape_setPosition(board->board, POS_BOARD);

@@ -26,9 +26,7 @@ void event_manager(sfEvent event, main_t *storage)
             storage->board->actual_layer = storage->board->layerList->tail;
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
-            storage->board->actual_layer = storage->board->layerList->tail->prev;
-            delete_layer(storage->board->layerList,
-            storage->board->layerList->tail);
+            manager_delete_layer(storage, 0);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
             save_drawing_to_png(storage, 3);
