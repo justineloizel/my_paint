@@ -11,18 +11,17 @@ void add_layer(layer_list_t *list, char *filepath)
 {
     if (list->head == NULL) {
         if (filepath == NULL)
-            list->head = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
+            list->head = framebuffer_create(SIZE_BOARD_ARG);
         if (filepath != NULL)
-            list->head = framebuffer_from_image(SIZE_BOARD.x, SIZE_BOARD.y, filepath);
+            list->head = framebuffer_from_image(SIZE_BOARD_ARG, filepath);
         list->tail = list->head;
         list->nb_layer += 1;
         return;
     }
     if (filepath == NULL)
-        list->tail->next = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
+        list->tail->next = framebuffer_create(SIZE_BOARD_ARG);
     else
-        list->tail->next = framebuffer_from_image(SIZE_BOARD.x, SIZE_BOARD.y, filepath);
-
+        list->tail->next = framebuffer_from_image(SIZE_BOARD_ARG, filepath);
     if (list->tail->next == NULL)
         return;
     list->tail->next->prev = list->tail;

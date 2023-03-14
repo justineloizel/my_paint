@@ -21,4 +21,3 @@ void manager_delete_layer(main_t *storage, UNUSED int id)
         BOARD->actual_layer = BOARD->layerList->head;
     }
 }
-

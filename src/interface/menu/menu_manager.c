@@ -52,7 +52,8 @@ void button_menu_is_clicked(void *storage, int id)
     }
     if (index != -1) {
         menu->menu_button->rec_click = tmp;
-        list_menus->list_menu = delete_visible_menu(list_menus->list_menu, index);
+        list_menus->list_menu =
+        delete_visible_menu(list_menus->list_menu, index);
     } else {
         list_menus->list_menu = add_visible_menu(list_menus->list_menu, id);
     }

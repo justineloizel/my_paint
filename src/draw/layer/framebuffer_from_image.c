@@ -17,15 +17,18 @@ sfUint8 *destination, sfVector2u destination_size)
     double ratio_height = (float)source_size.y / (float)destination_size.y;
     unsigned int size_src_x;
     unsigned int size_src_y;
-    
     for (unsigned int i = 0; i < destination_size.y; ++i) {
         for (unsigned int j = 0; j < destination_size.x; ++j) {
-             size_src_x = (unsigned int)(j * ratio_width);
+            size_src_x = (unsigned int)(j * ratio_width);
             size_src_y = (unsigned int)(i * ratio_height);
-            destination[(j + i * destination_size.x) * 4] = source[(size_src_x + size_src_y * source_size.x) * 4];
-            destination[(j + i * destination_size.x) * 4 + 1] = source[(size_src_x + size_src_y * source_size.x) * 4 + 1];
-            destination[(j + i * destination_size.x) * 4 + 2] = source[(size_src_x + size_src_y * source_size.x) * 4 + 2];
-            destination[(j + i * destination_size.x) * 4 + 3] = source[(size_src_x + size_src_y * source_size.x) * 4 + 3];
+            destination[(j + i * destination_size.x) * 4] =
+            source[(size_src_x + size_src_y * source_size.x) * 4];
+            destination[(j + i * destination_size.x) * 4 + 1] =
+            source[(size_src_x + size_src_y * source_size.x) * 4 + 1];
+            destination[(j + i * destination_size.x) * 4 + 2] =
+            source[(size_src_x + size_src_y * source_size.x) * 4 + 2];
+            destination[(j + i * destination_size.x) * 4 + 3] =
+            source[(size_src_x + size_src_y * source_size.x) * 4 + 3];
         }
     }
 }
@@ -46,7 +49,8 @@ sfUint8 *get_buffer_image(char *filepath)
     buffer = malloc(sizeof(sfUint8) * (int)(SIZE_BOARD.x * SIZE_BOARD.y * 4));
     if (buffer == NULL)
         return NULL;
-    copy_pixels(image_buffer, size, buffer, (sfVector2u){SIZE_BOARD.x, SIZE_BOARD.y});
+    copy_pixels(image_buffer, size, buffer,
+    (sfVector2u){SIZE_BOARD.x, SIZE_BOARD.y});
     sfImage_destroy(image);
     return buffer;
 }

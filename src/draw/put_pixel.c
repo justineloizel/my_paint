@@ -63,7 +63,8 @@ void draw_object(board_t *board, sfVector2i position)
     position.y -= (board->size / 2) + (int)POS_BOARD.y;
 
     brush_list[board->tools].brush(board, position);
-    if (sfTime_asSeconds(sfClock_getElapsedTime(board->clock)) < 0.05 && old_position.x != -1)
+    if (sfTime_asSeconds(sfClock_getElapsedTime(board->clock)) < 0.05 &&
+    old_position.x != -1)
         fill_gap(board, old_position, position);
 
     sfTexture_updateFromPixels(board->actual_layer->texture,

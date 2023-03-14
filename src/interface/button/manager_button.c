@@ -16,7 +16,7 @@ void is_hover(button_t *button, sfRenderWindow *window)
     sfVector2f size = {sfSprite_getLocalBounds(button->sprite).width,
     sfSprite_getGlobalBounds(button->sprite).height};
     sfVector2u screen_size = sfRenderWindow_getSize(window);
-    sfVector2f scale =  {button->scale.x / ((float)screen_size.x / 1920),
+    sfVector2f scale = {button->scale.x / ((float)screen_size.x / 1920),
     button->scale.y / ((float)screen_size.y / 1080)};
     if ((pos_mouse.x > pos.x && pos_mouse.x < (pos.x + size.x * scale.x)) &&
         (pos_mouse.y > pos.y && pos_mouse.y < (pos.y + size.y * scale.y))) {
@@ -35,8 +35,8 @@ void is_click(sfMouseButtonEvent event, main_t *storage, button_t *button)
     sfVector2f pos = {sfSprite_getPosition(button->sprite).x,\
     sfSprite_getPosition(button->sprite).y};
     sfVector2u screen_size = sfRenderWindow_getSize(WINDOW.window);
-    sfVector2f scale =  {button->scale.x / ((float)screen_size.x / 1920),
-                         button->scale.y / ((float)screen_size.y / 1080)};
+    sfVector2f scale = {button->scale.x / ((float)screen_size.x / 1920),
+    button->scale.y / ((float)screen_size.y / 1080)};
     if (IS_CLICk && button->fct != NULL) {
         sfSprite_setTextureRect(button->sprite, button->rec_click);
         sfRenderWindow_drawSprite(WINDOW.window, button->sprite, NULL);
