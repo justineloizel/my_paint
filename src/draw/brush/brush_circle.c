@@ -22,7 +22,6 @@ void draw_filled_circle(board_t *board, sfVector2i center)
 {
     int x = center.x;
     int y = center.y;
-    double dist;
 
     for (int i = x - board->size; i <= x + board->size; i++) {
         complete_filled_circle(board, x, y, i);

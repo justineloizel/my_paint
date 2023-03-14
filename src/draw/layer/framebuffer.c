@@ -52,7 +52,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
     return (framebuffer);
 }
 
-board_t *board_create(unsigned int width, unsigned int height)
+board_t *board_create(UNUSED unsigned int width, UNUSED unsigned int height)
 {
     board_t *board = malloc(sizeof(board_t));
 
