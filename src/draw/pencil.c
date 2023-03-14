@@ -32,6 +32,7 @@ void drawing_activated(void *storage, int id)
     ((main_t *)storage)->window.cursor = 1;
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
+    // menu pops up with possibility to change line thickness + color palette (color picker)!
 }
 
 void eraser_activated(void *storage, int id)
@@ -39,4 +40,5 @@ void eraser_activated(void *storage, int id)
     ((main_t *)storage)->window.cursor = 2;
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
+    // menu pops up with possibility to change shape and thickness
 }
