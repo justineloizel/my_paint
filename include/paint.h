@@ -78,7 +78,7 @@ sfVector2f get_valid_position(main_t *storage, sfVector2f position);
         board_t *board_create(unsigned int width, unsigned int height);
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
 layer_list_t *init_layer(void);
-void add_layer(layer_list_t *list);
+void add_layer(layer_list_t *list, char *filepath);
 
 //manage
         void manage_draw(main_t *storage);

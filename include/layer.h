@@ -27,4 +27,6 @@ typedef struct brush_store {
     void (*brush)(board_t *board, sfVector2i position);
 }brush_store_t;
 void manager_delete_layer(main_t *storage, UNUSED int id);
+framebuffer_t *framebuffer_from_image(unsigned int width, unsigned int height,
+char *filepath);
 #endif /*LAYER_H_*///

@@ -22,14 +22,15 @@ void event_manager(sfEvent event, main_t *storage)
             recalcul_position_menu(storage);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
-            add_layer(storage->board->layerList);
+            add_layer(storage->board->layerList, NULL);
             storage->board->actual_layer = storage->board->layerList->tail;
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
             manager_delete_layer(storage, 0);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-            save_drawing_to_png(storage, 3);
+            add_layer(BOARD->layerList, "tiplouf.jpeg");
+            BOARD->actual_layer = BOARD->layerList->tail;
         }
     }
 }

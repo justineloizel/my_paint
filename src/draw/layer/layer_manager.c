@@ -17,7 +17,7 @@ void manager_delete_layer(main_t *storage, UNUSED int id)
 
     delete_layer(storage->board->layerList,actual);
     if (BOARD->layerList->head == NULL) {
-        add_layer(BOARD->layerList);
+        add_layer(BOARD->layerList, NULL);
         BOARD->actual_layer = BOARD->layerList->head;
     }
 }

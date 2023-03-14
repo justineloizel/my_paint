@@ -37,7 +37,6 @@ int is_around(sfVector2i position_f, sfVector2i position_a, int size)
     position_f.y - position_a.y};
     int norm = (position_f.x - position_a.x) + (position_f.y - position_a.y);
     if (norm < size) {
-        my_printf("ok\n");
         return 1;
     }
     return 0;

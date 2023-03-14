@@ -32,6 +32,7 @@ SRC += destroy.c
 SRC += manage_draw.c
 SRC += layer.c
 SRC += framebuffer.c
+SRC += framebuffer_from_image.c
 SRC += pencil.c
 SRC += new_file.c
 SRC += save_drawing.c

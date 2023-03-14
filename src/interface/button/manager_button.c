@@ -7,8 +7,7 @@
 
 #include "paint.h"
 #include "myprintf.h"
-//        sfRenderWindow_mapPixelToCoords()
-//sfMouse_getPositionRenderWindow(window);
+
 void is_hover(button_t *button, sfRenderWindow *window)
 {
     sfVector2f pos = sfSprite_getPosition(button->sprite);

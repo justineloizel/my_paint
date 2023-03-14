@@ -13,6 +13,6 @@ void new_file(void *storage, int id)
     button_menu_is_clicked(storage, id);
     board_destroy(((main_t *)storage)->board);
     ((main_t *)storage)->board = board_create(1920, 1080);
-    add_layer(((main_t *)storage)->board->layerList);
+    add_layer(((main_t *)storage)->board->layerList, NULL);
     ((main_t *)storage)->board->actual_layer = ((main_t *)storage)->board->layerList->head;
 }

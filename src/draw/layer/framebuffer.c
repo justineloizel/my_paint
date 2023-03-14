@@ -17,10 +17,11 @@ void board_destroy(board_t *board)
     free(board);
 }
 
-static void set_framebuffer(framebuffer_t *framebuffer, unsigned int width,
-unsigned int height)
+void set_framebuffer(framebuffer_t *framebuffer, unsigned int width,
+unsigned int height, int fill_fb)
 {
-    fill_framebuffer(framebuffer, sfTransparent);
+    if (fill_fb)
+        fill_framebuffer(framebuffer, sfTransparent);
     sfSprite_setTexture(framebuffer->sprite, framebuffer->texture, sfTrue);
     sfSprite_setPosition(framebuffer->sprite, POS_BOARD);
     sfTexture_updateFromPixels(framebuffer->texture, framebuffer->pixels,
@@ -47,7 +48,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
     if (framebuffer->texture == NULL || framebuffer->sprite == NULL) {
         return (NULL);
     }
-    set_framebuffer(framebuffer, width, height);
+    set_framebuffer(framebuffer, width, height, sfTrue);
     return (framebuffer);
 }
 
