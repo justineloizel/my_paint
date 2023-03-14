@@ -59,7 +59,7 @@ board_t *board_create(unsigned int width, unsigned int height)
     if (board->layerList == NULL)
         return NULL;
     board->actual_layer = board->layerList->head;
-    board->color = sfCyan;
+    board->color = sfBlack;
     board->board = sfRectangleShape_create();
     board->clock = sfClock_create();
     if (board->actual_layer == NULL || board->board == NULL

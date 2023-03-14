@@ -9,14 +9,27 @@
 #include "myprintf.h"
 
 static const button_store_t button_list[] = {
-        {1,"assets/main_but.png", {13, 44}, {1, 1}, {0, 0, 65, 32},\
-        {0, 32, 65, 32}, {0, 64, 65, 32}, NULL},
+        {1,"assets/newfile.png", {10, 39}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, new_file},
 
-        {1, "assets/play_but.png", {13, 76}, {1, 1}, {0, 0, 65, 32},\
-        {0, 32, 65, 32}, {0, 64, 65, 32}, NULL},
+        {1, "assets/openfile.png", {10, 68}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
 
-        {1,"assets/quit_but.png", {13, 108}, {1, 1}, {0, 0, 65, 32},\
-        {0, 32, 65, 32}, {0, 64, 65, 32}, NULL}
+        {1,"assets/savefile.png", {10, 97}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
+
+        {2, "assets/pencil_but.png", {90, 39}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, drawing_activated},
+
+        {2,"assets/eraser.png", {90, 68}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, eraser_activated},
+
+        {3, "assets/about.png", {170, 39}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
+
+        {3,"assets/help_help.png", {170, 68}, {1, 1}, {0, 0, 80, 32},\
+        {0, 32, 80, 32}, {0, 64, 80, 32}, NULL},
+
 };
 
 void set_button(button_t *button)
