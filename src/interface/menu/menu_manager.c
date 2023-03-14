@@ -39,11 +39,21 @@ void verify_menu_click(sfMouseButtonEvent event, main_t *storage)
 
 void button_menu_is_clicked(void *storage, int id)
 {
-    list_menu_t *menus = ((main_t *)storage)->list_menu;
-    int index = is_visible_menu(id, menus->list_menu);
+    list_menu_t *list_menus = ((main_t *)storage)->list_menu;
+    int index = is_visible_menu(id, list_menus->list_menu);
+    menu_t *menu = list_menus->head;
+    sfIntRect tmp;
+
+    for (; menu->id != id && menu != NULL; menu = menu->next);
+    if (menu != NULL) {
+        tmp = menu->menu_button->rec;
+        menu->menu_button->rec = menu->menu_button->rec_click;
+        menu->menu_button->rec_click = tmp;
+    }
     if (index != -1) {
-        menus->list_menu = delete_visible_menu(menus->list_menu, index);
+        menu->menu_button->rec_click = tmp;
+        list_menus->list_menu = delete_visible_menu(list_menus->list_menu, index);
     } else {
-        menus->list_menu = add_visible_menu(menus->list_menu, id);
+        list_menus->list_menu = add_visible_menu(list_menus->list_menu, id);
     }
 }

@@ -15,6 +15,8 @@ VPATH += src/interface/button
 VPATH += src/window
 VPATH += src/draw
 VPATH += src/draw/layer
+VPATH += src/draw/save
+VPATH += src/draw/brush
 VPATH += src/init_destroy
 
 SRC += paint.c
@@ -32,10 +34,14 @@ SRC += layer.c
 SRC += framebuffer.c
 SRC += pencil.c
 SRC += new_file.c
+SRC += save_drawing.c
+SRC += brush_square.c
+SRC += brush_triangle.c
+SRC += brush_circle.c
 
 CFLAGS = -I include/ -Wall -Wextra -g
 
-LDFLAGS = -L lib/ -lmy -lprint
+LDFLAGS = -L lib/ -lmy -lprint -lm
 
 SFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 

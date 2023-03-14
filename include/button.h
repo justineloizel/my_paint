@@ -7,6 +7,8 @@
 #ifndef BUTTON_H_
     #define BUTTON_H_
     #define ARRLEN(X) (sizeof(X) / sizeof(X[0]))
+    #define IS_CLICk clic.x > pos.x && clic.x < (pos.x + size.x * scale.x) &&\
+    clic.y > pos.y && clic.y < (pos.y + size.y * scale.y)
     #include <SFML/Audio.h>
     #include <SFML/Graphics.h>
     #include <stdio.h>
