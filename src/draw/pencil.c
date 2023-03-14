@@ -9,8 +9,8 @@
 
 void display_cursor(main_t *storage)
 {
-    storage->window.pen_pos.x = (sfMouse_getPositionRenderWindow(storage->window.window).x) - 12;
-    storage->window.pen_pos.y = (sfMouse_getPositionRenderWindow(storage->window.window).y) - 12;
+    storage->window.pen_pos.x = (sfMouse_getPositionRenderWindow(storage->window.window).x) - 0;
+    storage->window.pen_pos.y = (sfMouse_getPositionRenderWindow(storage->window.window).y) - 24;
     sfSprite_setPosition(storage->window.pencil, storage->window.pen_pos);
     sfRenderWindow_drawSprite(storage->window.window, storage->window.pencil, NULL);
 }
@@ -18,4 +18,6 @@ void display_cursor(main_t *storage)
 void drawing_activated(void *storage, int id)
 {
     ((main_t *)storage)->window.cursor = 1;
+    sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
+    button_menu_is_clicked(storage, id);
 }
