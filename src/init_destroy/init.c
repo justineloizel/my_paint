@@ -16,7 +16,9 @@ main_t *init_storage(void)
     storage->window = init_window();
     storage->list_menu = create_base_menu();
     storage->board = board_create(1920, 1080);
-    if (storage->list_menu == NULL || storage->board == NULL)
+    storage->palette = init_palette();
+    if (storage->list_menu == NULL || storage->board == NULL ||
+    storage->palette == NULL)
         return NULL;
     add_button_in_his_menu(storage->list_menu);
     return storage;

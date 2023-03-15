@@ -27,7 +27,9 @@
     #define V2F_V2I(X) (sfVector2i){\
     X.x, X.y                        \
     }
-
+    #define PALETTE_POS (sfVector2f){\
+    20, 300\
+    }
 typedef struct framebuffer_t    {
     sfUint8 *pixels;
     unsigned int width;
@@ -48,10 +50,17 @@ typedef struct board {
     sfRectangleShape *board;
 }board_t;
 
+typedef struct color_palette {
+    sfTexture *texture;
+    sfImage *image;
+    sfSprite *sprite;
+} color_palette_t;
+
 typedef struct main_s {
     window_t window;
     list_menu_t *list_menu;
     board_t *board;
+    color_palette_t *palette;
 }main_t;
 
 int *add_visible_menu(int *actual_list, int menu);
@@ -77,8 +86,9 @@ sfVector2f get_valid_position(main_t *storage, sfVector2f position);
         void add_button_in_his_menu(list_menu_t *list_menu);
         board_t *board_create(unsigned int width, unsigned int height);
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
-layer_list_t *init_layer(void);
-void add_layer(layer_list_t *list, char *filepath);
+        layer_list_t *init_layer(void);
+        void add_layer(layer_list_t *list, char *filepath);
+        color_palette_t *init_palette(void);
 
 //manage
         void manage_draw(main_t *storage);
