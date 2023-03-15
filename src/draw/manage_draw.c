@@ -5,8 +5,6 @@
 ** manage_draw.c
 */
 
-#include "my.h"
-#include "myprintf.h"
 #include "paint.h"
 
 int is_board(main_t *storage)
