@@ -9,8 +9,8 @@
 #include "paint.h"
 
 static const menu_store_t menu_list[] = {
-        {1, {1, "assets/file.png", {10, 10}, {1, 1}, {0, 0, 80, 32},
-        {0, 32, 80, 32},{0, 64, 80, 32}, button_menu_is_clicked}},
+        {1, {1, "assets/file_button.png", {0, 0}, {1, 1}, {0, 0, 160, 40},
+        {0, 43, 160, 43},{0, 80, 160, 40}, button_menu_is_clicked}},
 
         {2, {2, "assets/edit.png", {90, 10}, {1, 1}, {0, 0, 80, 32},
         {0, 32, 80, 32},{0, 64, 80, 32}, button_menu_is_clicked}},
