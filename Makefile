@@ -18,6 +18,7 @@ VPATH += src/draw/layer
 VPATH += src/draw/save
 VPATH += src/draw/brush
 VPATH += src/init_destroy
+VPATH += src/draw/color_manager
 
 SRC += paint.c
 SRC += button.c
@@ -40,8 +41,9 @@ SRC += brush_square.c
 SRC += brush_triangle.c
 SRC += brush_circle.c
 SRC += layer_manager.c
+SRC += color_palette.c
 
-CFLAGS = -I include/ -Wall -Wextra -g
+CFLAGS = -I include/ -Wall -Wextra
 
 LDFLAGS = -L lib/ -lmy -lprint -lm
 
@@ -49,7 +51,7 @@ SFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 BUILD_DIR = build/
 
-NAME = paint
+NAME = my_paint
 
 DEBUG ?= 1
 ifeq ($(DEBUG), 1)

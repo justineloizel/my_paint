@@ -29,7 +29,7 @@ void event_manager(sfEvent event, main_t *storage)
             manager_delete_layer(storage, 0);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-            add_layer(BOARD->layerList, "tiplouf.jpeg");
+            add_layer(BOARD->layerList, "pokemon.jpg");
             BOARD->actual_layer = BOARD->layerList->tail;
         }
     }
@@ -43,6 +43,7 @@ void paint(main_t *storage)
         (sfColor){47, 129, 121, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
+        sfRenderWindow_drawSprite(storage->window.window, storage->palette->sprite, NULL);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
         if (storage->window.cursor > 0)

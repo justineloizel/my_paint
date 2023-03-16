@@ -15,7 +15,6 @@ void display_cursor(main_t *storage)
         storage->window.pen_pos.y -= 24;
         sfSprite_setPosition(storage->window.pencil, storage->window.pen_pos);
         sfRenderWindow_drawSprite(storage->window.window, storage->window.pencil, NULL);
-        storage->board->color = sfBlack;
         manage_draw(storage);
     }
     if (storage->window.cursor == 2) {
