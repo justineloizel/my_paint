@@ -3,5 +3,6 @@ build/
 .idea/
 .vscode/
 paint
+my_paint
 *.a
 /coding-style-reports.log
