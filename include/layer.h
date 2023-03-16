@@ -7,10 +7,10 @@
 #ifndef LAYER_H_
 	#define LAYER_H_
     #define POS_BOARD (sfVector2f){\
-    600,150\
+    400,43\
     }
     #define SIZE_BOARD (sfVector2f){\
-    1280, 830\
+    1520, 965\
     }
     #define UNUSED __attribute__((unused))
 typedef struct board board_t;
