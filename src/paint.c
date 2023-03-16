@@ -40,7 +40,7 @@ void paint(main_t *storage)
     sfEvent event;
     while (sfRenderWindow_isOpen(storage->window.window)) {
         sfRenderWindow_clear(storage->window.window,
-        (sfColor){47, 129, 121, 1});
+        (sfColor){62, 62, 62, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
         sfRenderWindow_drawSprite(storage->window.window, storage->palette->sprite, NULL);

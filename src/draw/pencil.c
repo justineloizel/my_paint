@@ -43,4 +43,5 @@ void eraser_activated(void *storage, int id)
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
     // menu pops up with possibility to change shape and thickness
+    // add_visible_menu(donner id du menu créé mais ps visible)
 }
