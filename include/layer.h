@@ -5,13 +5,14 @@
 ** layer.h
 */
 #ifndef LAYER_H_
-	#define LAYER_H_
+    #define LAYER_H_
     #define POS_BOARD (sfVector2f){\
     400,43\
     }
     #define SIZE_BOARD (sfVector2f){\
     1520, 965\
     }
+    #define SIZE_BOARD_ARG SIZE_BOARD.x, SIZE_BOARD.y
     #define UNUSED __attribute__((unused))
 typedef struct board board_t;
 typedef struct main_s main_t;
@@ -27,4 +28,6 @@ typedef struct brush_store {
     void (*brush)(board_t *board, sfVector2i position);
 }brush_store_t;
 void manager_delete_layer(main_t *storage, UNUSED int id);
+framebuffer_t *framebuffer_from_image(unsigned int width, unsigned int height,
+char *filepath);
 #endif /*LAYER_H_*///

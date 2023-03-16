@@ -22,14 +22,15 @@ void event_manager(sfEvent event, main_t *storage)
             recalcul_position_menu(storage);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
-            add_layer(storage->board->layerList);
+            add_layer(storage->board->layerList, NULL);
             storage->board->actual_layer = storage->board->layerList->tail;
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
             manager_delete_layer(storage, 0);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-            save_drawing_to_png(storage, 3);
+            add_layer(BOARD->layerList, "pokemon.jpg");
+            BOARD->actual_layer = BOARD->layerList->tail;
         }
     }
 }
@@ -42,6 +43,7 @@ void paint(main_t *storage)
         (sfColor){62, 62, 62, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
+        sfRenderWindow_drawSprite(storage->window.window, storage->palette->sprite, NULL);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);
         if (storage->window.cursor > 0)

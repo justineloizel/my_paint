@@ -12,7 +12,7 @@ void draw_filled_square(board_t *board, sfVector2i position)
     for (int i = 0; i < board->size; i++) {
         for (int j = 0; j < board->size; j++) {
             put_pixel(board->actual_layer, position.x + j, position.y + i,
-                      board->color);
+            board->color);
         }
     }
 }

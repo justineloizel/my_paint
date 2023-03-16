@@ -7,15 +7,21 @@
 #include "paint.h"
 #include "layer.h"
 
-void add_layer(layer_list_t *list)
+void add_layer(layer_list_t *list, char *filepath)
 {
     if (list->head == NULL) {
-        list->head = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
+        if (filepath == NULL)
+            list->head = framebuffer_create(SIZE_BOARD_ARG);
+        if (filepath != NULL)
+            list->head = framebuffer_from_image(SIZE_BOARD_ARG, filepath);
         list->tail = list->head;
         list->nb_layer += 1;
         return;
     }
-    list->tail->next = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
+    if (filepath == NULL)
+        list->tail->next = framebuffer_create(SIZE_BOARD_ARG);
+    else
+        list->tail->next = framebuffer_from_image(SIZE_BOARD_ARG, filepath);
     if (list->tail->next == NULL)
         return;
     list->tail->next->prev = list->tail;
@@ -32,7 +38,7 @@ layer_list_t *init_layer(void)
     layer_list->head = NULL;
     layer_list->tail = NULL;
     layer_list->nb_layer = 0;
-    add_layer(layer_list);
+    add_layer(layer_list, NULL);
     if (layer_list->head == NULL)
         return NULL;
     return layer_list;

@@ -9,7 +9,8 @@
 
 void fill_framebuffer(framebuffer_t *framebuffer, sfColor color)
 {
-    for (size_t i = 0; i < framebuffer->width * framebuffer->height * 4; i += 4) {
+    for (size_t i = 0; i < framebuffer->width * framebuffer->height * 4;
+    i += 4) {
         framebuffer->pixels[i] = color.r;
         framebuffer->pixels[i + 1] = color.g;
         framebuffer->pixels[i + 2] = color.b;
@@ -19,7 +20,8 @@ void fill_framebuffer(framebuffer_t *framebuffer, sfColor color)
 
 void concat_framebuffer(framebuffer_t *framebuffer, framebuffer_t *layer)
 {
-    for (size_t i = 0; i < framebuffer->width * framebuffer->height * 4; i += 4) {
+    for (size_t i = 0; i < framebuffer->width * framebuffer->height * 4;
+    i += 4) {
         if (layer->pixels[i] == sfTransparent.r &&
             layer->pixels[i + 1] == sfTransparent.g &&
             layer->pixels[i + 2] == sfTransparent.b &&
@@ -43,7 +45,8 @@ void save_drawing_to_jpg(main_t *storage, UNUSED int id)
         return;
     fill_framebuffer(fb_save, sfWhite);
     concat_framebuffer(fb_save, storage->board->layerList->head);
-    image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y, fb_save->pixels);
+    image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y,
+    fb_save->pixels);
     sfImage_saveToFile(image, "save.jpg");
     sfImage_destroy(image);
     delete_framebuffer(fb_save);
@@ -57,7 +60,8 @@ void save_drawing_to_png(main_t *storage, UNUSED int id)
     if (fb_save == NULL)
         return;
     concat_framebuffer(fb_save, storage->board->layerList->head);
-    image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y, fb_save->pixels);
+    image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y,
+    fb_save->pixels);
     sfImage_saveToFile(image, "save.png");
     sfImage_destroy(image);
     delete_framebuffer(fb_save);
