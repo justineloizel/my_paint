@@ -14,10 +14,10 @@ int is_board(main_t *storage)
     sfVector2f mouse_pos = get_valid_position(storage,
     V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
 
-    if (mouse_pos.x >= pos_board.x + (float)(BOARD->size / 2) &&
-    mouse_pos.x <= pos_board.x + size_board.x - (BOARD->size / 2)
-    && mouse_pos.y >= pos_board.y + (BOARD->size / 2) &&
-    mouse_pos.y <= pos_board.y + size_board.y - (float)(BOARD->size / 2))
+    if (mouse_pos.x >= pos_board.x &&
+    mouse_pos.x <= pos_board.x + size_board.x
+    && mouse_pos.y >= pos_board.y &&
+    mouse_pos.y <= pos_board.y + size_board.y)
         return 1;
     return 0;
 }

@@ -29,7 +29,7 @@ void event_manager(sfEvent event, main_t *storage)
             manager_delete_layer(storage, 0);
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-            add_layer(BOARD->layerList, "portrait.jpg");
+            add_layer(BOARD->layerList, "pokemon.jpg");
             BOARD->actual_layer = BOARD->layerList->tail;
         }
     }
