@@ -28,7 +28,7 @@
     X.x, X.y                        \
     }
     #define PALETTE_POS (sfVector2f){\
-    20, 300\
+    40, 80\
     }
 typedef struct framebuffer_t    {
     sfUint8 *pixels;

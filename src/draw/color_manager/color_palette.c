@@ -13,7 +13,7 @@ color_palette_t *init_palette(void)
 
     if (palette == NULL)
         return NULL;
-    palette->image = sfImage_createFromFile("assets/color_palette.png");
+    palette->image = sfImage_createFromFile("assets/8.jpg");
     if (palette->image == NULL)
         return NULL;
     palette->texture = sfTexture_createFromImage(palette->image, NULL);
