@@ -19,8 +19,10 @@ void print_button_menu(list_menu_t *list_menu, sfRenderWindow *window)
 {
     menu_t *menu = list_menu->head;
     for (; menu != NULL; menu = menu->next) {
-        is_hover(menu->menu_button, window);
-        sfRenderWindow_drawSprite(window, menu->menu_button->sprite, NULL);
+        if (menu->menu_button != NULL) {
+            is_hover(menu->menu_button, window);
+            sfRenderWindow_drawSprite(window, menu->menu_button->sprite, NULL);
+        }
         if (is_visible_menu(menu->id, list_menu->list_menu) != -1)
             print_list_button(menu->button_list, window);
     }
