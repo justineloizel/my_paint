@@ -69,7 +69,10 @@ void print_layer(main_t *storage)
 
     if (fb == NULL)
         return;
-
-    for (; fb != NULL; fb = fb->next)
+    sfRenderWindow_setView(WINDOW.window, BOARD->view);
+    sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
+    for (; fb != NULL; fb = fb->next) {
         sfRenderWindow_drawSprite(storage->window.window, fb->sprite, NULL);
+    }
+    sfRenderWindow_setView(WINDOW.window, WINDOW.view);
 }
