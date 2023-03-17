@@ -6,6 +6,7 @@
 */
 
 #include "paint.h"
+#include "my.h"
 
 void fill_framebuffer(framebuffer_t *framebuffer, sfColor color)
 {
@@ -40,14 +41,18 @@ void save_drawing_to_jpg(main_t *storage, UNUSED int id)
 {
     framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     sfImage *image;
+    char *input = get_input();
 
-    if (fb_save == NULL)
+    if (fb_save == NULL || input == NULL) {
+        delete_framebuffer(fb_save);
+        IS_NULL(input)
         return;
+    }
     fill_framebuffer(fb_save, sfWhite);
     concat_framebuffer(fb_save, storage->board->layerList->head);
     image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y,
     fb_save->pixels);
-    sfImage_saveToFile(image, "save.jpg");
+    sfImage_saveToFile(image, my_strcat(input, ".jpeg"));
     sfImage_destroy(image);
     delete_framebuffer(fb_save);
 }
@@ -56,13 +61,37 @@ void save_drawing_to_png(main_t *storage, UNUSED int id)
 {
     framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     sfImage *image;
+    char *input = get_input();
 
-    if (fb_save == NULL)
+    if (fb_save == NULL || input == NULL) {
+        delete_framebuffer(fb_save);
+        IS_NULL(input)
         return;
+    }
     concat_framebuffer(fb_save, storage->board->layerList->head);
     image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y,
     fb_save->pixels);
-    sfImage_saveToFile(image, "save.png");
+    sfImage_saveToFile(image, my_strcat(input, ".png"));
+    sfImage_destroy(image);
+    delete_framebuffer(fb_save);
+}
+
+void save_drawing_to_bmp(main_t *storage, UNUSED int id)
+{
+    framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
+    sfImage *image;
+    char *input = get_input();
+
+    if (fb_save == NULL || input == NULL) {
+        delete_framebuffer(fb_save);
+        IS_NULL(input)
+        return;
+    }
+    fill_framebuffer(fb_save, sfWhite);
+    concat_framebuffer(fb_save, storage->board->layerList->head);
+    image = sfImage_createFromPixels(SIZE_BOARD.x, SIZE_BOARD.y,
+            fb_save->pixels);
+    sfImage_saveToFile(image, my_strcat(input, ".bmp"));
     sfImage_destroy(image);
     delete_framebuffer(fb_save);
 }

@@ -30,6 +30,7 @@
     #define PALETTE_POS (sfVector2f){\
     40, 80\
     }
+    #define IS_NULL(X) (X == NULL) ? NULL : free(X);
 typedef struct framebuffer_t    {
     sfUint8 *pixels;
     unsigned int width;
@@ -99,7 +100,9 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void print_layer(main_t *storage);
         void save_drawing_to_jpg(main_t *storage, int id);
         void save_drawing_to_png(main_t *storage, int id);
+        void save_drawing_to_bmp(main_t *storage, int id);
         void fill_framebuffer(framebuffer_t *framebuffer, sfColor color);
+        char *get_input(void);
 
 
 //destroy
