@@ -8,28 +8,6 @@
 #include "myprintf.h"
 #include "paint.h"
 
-void test_view(main_t *storage, float *test)
-{
-    sfView *view = sfView_createFromRect((sfFloatRect)
-    {POS_BOARD.x, POS_BOARD.y, SIZE_BOARD_ARG});
-    *test -= 0.2f;
-    sfView_setCenter(view, POS_BOARD);
-    sfView_zoom(view, *test);
-    sfRenderWindow_setView(WINDOW.window, view);
-    sfView_destroy(view);
-}
-
-void test_view2(main_t *storage, float *test)
-{
-    sfView *view = sfView_createFromRect((sfFloatRect)
-    {POS_BOARD.x, POS_BOARD.y, SIZE_BOARD_ARG});
-    *test += 0.2f;
-    sfView_setCenter(view, POS_BOARD);
-    sfView_zoom(view, *test);
-    sfRenderWindow_setView(WINDOW.window, view);
-    sfView_destroy(view);
-}
-
 void manage_event_bis(main_t *storage, sfEvent event)
 {
     static float test = 1;
@@ -46,10 +24,6 @@ void manage_event_bis(main_t *storage, sfEvent event)
     }
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM)
         save_drawing_to_jpg(storage, 3);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ)
-        test_view(storage, &test);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
-        test_view2(storage, &test);
 }
 
 void event_manager(sfEvent event, main_t *storage)
