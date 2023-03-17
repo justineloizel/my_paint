@@ -31,10 +31,14 @@ typedef struct window {
     sfSprite *layer;
     sfTexture *layer_texture;
     sfVector2f layer_pos;
+    sfSprite *shape;
+    sfTexture *shape_texture;
+    sfVector2f shape_pos;
     sfVideoMode mode;
     sfClock *clock;
     int cursor;
     int pop_up;
+    int pen;
     sfView const *view;
 }window_t;
 window_t init_window(void);

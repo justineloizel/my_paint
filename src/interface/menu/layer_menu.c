@@ -7,13 +7,14 @@
 
 #include "paint.h"
 
-void layer_plus(void *storage, int id)
+void layer_plus(void *storage, UNUSED int id)
 {
     add_layer(((main_t *)storage)->board->layerList, NULL);
-    ((main_t *)storage)->board->actual_layer = ((main_t *)storage)->board->layerList->tail;
+    ((main_t *)storage)->board->actual_layer =
+    ((main_t *)storage)->board->layerList->tail;
 }
 
-void layer_less(void *storage, int id)
+void layer_less(void *storage, UNUSED int id)
 {
     manager_delete_layer(((main_t *)storage), 0);
 }

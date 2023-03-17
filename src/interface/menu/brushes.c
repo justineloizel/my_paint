@@ -7,19 +7,19 @@
 
 #include "paint.h"
 
-void filled_square(void *storage, int id)
+void filled_square(void *storage, UNUSED int id)
 {
     ((main_t *)storage)->board->tools = 3;
 }
 
-void filled_circle(void *storage, int id)
+void filled_circle(void *storage, UNUSED int id)
 {
     ((main_t *)storage)->board->tools = 0;
 }
 
-void filled_triangle(void *storage, int id)
+void filled_triangle(void *storage, UNUSED int id)
 {
-    ((main_t *)storage)->board->tools = 5;
+    ((main_t *)storage)->board->tools = 7;
 }
 
 void quit_paint(void *storage, int id)

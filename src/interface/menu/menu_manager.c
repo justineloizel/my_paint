@@ -39,6 +39,18 @@ void verify_menu_click(sfMouseButtonEvent event, main_t *storage)
     }
 }
 
+static void check_side_menu(main_t *storage, int id)
+{
+    int index;
+    if (id != 2) {
+        storage->window.cursor = 0;
+        storage->window.pen = 0;
+        index = is_visible_menu(5, MENU_LIST->list_menu);
+        storage->list_menu->list_menu =
+        delete_visible_menu(storage->list_menu->list_menu, index);
+    }
+}
+
 void button_menu_is_clicked(void *storage, int id)
 {
     list_menu_t *list_menus = ((main_t *)storage)->list_menu;
@@ -59,4 +71,5 @@ void button_menu_is_clicked(void *storage, int id)
     } else {
         list_menus->list_menu = add_visible_menu(list_menus->list_menu, id);
     }
+    check_side_menu(((main_t *)storage), id);
 }
