@@ -42,6 +42,7 @@ SRC += brush_triangle.c
 SRC += brush_circle.c
 SRC += layer_manager.c
 SRC += color_palette.c
+SRC += help.c
 
 CFLAGS = -I include/ -Wall -Wextra
 

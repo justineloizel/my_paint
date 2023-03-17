@@ -18,6 +18,9 @@ static const menu_store_t menu_list[] = {
         {3, {3, "assets/Help.png", {320, 0}, {1, 1}, {0, 0, 160, 40},
         {0, 43, 160, 43},{0, 86, 160, 43}, button_menu_is_clicked}},
 
+        {4, {4, "assets/manual.png", {3000, 3000}, {1, 1}, {0, 0, 160, 40},
+        {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
+
 };
 
 menu_t *init_menu(menu_store_t data)

@@ -24,9 +24,16 @@ typedef struct window {
     sfTexture *eraser_texture;
     sfVector2f eraser_pos;
     sfIntRect eraser_dim;
+    sfSprite *manual;
+    sfTexture *manual_texture;
+    sfVector2f manual_pos;
+    sfSprite *about;
+    sfTexture *about_texture;
+    sfVector2f about_pos;
     sfVideoMode mode;
     sfClock *clock;
     int cursor;
+    int pop_up;
     sfView const *view;
 }window_t;
 window_t init_window(void);

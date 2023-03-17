@@ -35,6 +35,16 @@ void event_manager(sfEvent event, main_t *storage)
     }
 }
 
+static void display_pop_up(main_t *storage)
+{
+    if (storage->window.pop_up == 1) {
+        sfRenderWindow_drawSprite(storage->window.window, storage->window.manual, NULL);
+    }
+    if (storage->window.pop_up == 2) {
+        sfRenderWindow_drawSprite(storage->window.window, storage->window.about, NULL);
+    }
+}
+
 void paint(main_t *storage)
 {
     sfEvent event;
@@ -43,6 +53,8 @@ void paint(main_t *storage)
         (sfColor){62, 62, 62, 1});
         event_manager(event, storage);
         sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
+        if (storage->window.pop_up > 0)
+            display_pop_up(storage);
         sfRenderWindow_drawSprite(storage->window.window, storage->palette->sprite, NULL);
         print_layer(storage);
         print_button_menu(storage->list_menu, storage->window.window);

@@ -33,6 +33,7 @@ void drawing_activated(void *storage, int id)
     ((main_t *)storage)->window.cursor = 1;
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
+    // ((main_t *)storage)->list_menu->list_menu = add_visible_menu(((main_t *)storage)->list_menu->list_menu, 3);
     // menu pops up with possibility to change line thickness +
     // color palette (color picker)!
 }

@@ -64,6 +64,9 @@ typedef struct main_s {
 }main_t;
 
 int *add_visible_menu(int *actual_list, int menu);
+void quit_manual(void *storage, int id);
+void display_about(void *storage, int id);
+void display_manual(void *storage, int id);
 void drawing_activated(void *storage, int id);
 void display_cursor(main_t *storage);
 void new_file(void *storage, int id);
