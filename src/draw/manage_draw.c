@@ -33,7 +33,9 @@ void is_in_palette(main_t *storage)
     (double)size_palette.x
     && mouse_pos.y >= pos_palette.y && mouse_pos.y <= pos_palette.y +
     (double)size_palette.y) {
-        BOARD->color = sfImage_getPixel(storage->palette->image, (size_t)(mouse_pos.x - PALETTE_POS.x), (size_t)(mouse_pos.y - PALETTE_POS.y));
+        BOARD->color = sfImage_getPixel(storage->palette->image,
+        (size_t)(mouse_pos.x - PALETTE_POS.x), (size_t)\
+        (mouse_pos.y - PALETTE_POS.y));
     }
 }
 
