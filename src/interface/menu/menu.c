@@ -27,6 +27,12 @@ static const menu_store_t menu_list[] = {
         {6, {6, "assets/error.png", {1880, 0}, {1, 1}, {0, 0, 40, 40},
         {0, 43, 40, 40},{0, 0, 40, 40}, quit_paint}},
 
+        {7, {7, "assets/add_layer.png", {80, 950}, {1, 1}, {0, 0, 40, 40},
+        {0, 43, 40, 43},{0, 86, 40, 43}, layer_plus}},
+
+        {8, {8, "assets/less_layer.png", {280, 950}, {1, 1}, {0, 0, 40, 40},
+        {0, 43, 40, 43},{0, 86, 40, 43}, layer_less}},
+
 };
 
 menu_t *init_menu(menu_store_t data)

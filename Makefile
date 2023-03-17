@@ -44,6 +44,7 @@ SRC += layer_manager.c
 SRC += color_palette.c
 SRC += help.c
 SRC += brushes.c
+SRC += layer_menu.c
 
 CFLAGS = -I include/ -Wall -Wextra
 

@@ -48,6 +48,12 @@ window_t init_window(void)
     sfRenderWindow_setMouseCursorVisible(window.window, 1);
     window.pencil = sfSprite_create();
     window.pen_texture = sfTexture_createFromFile("assets/pen.png", NULL);
+    window.layer = sfSprite_create();
+    window.layer_texture = sfTexture_createFromFile("assets/layers.png", NULL);
+    sfSprite_setTexture(window.layer, window.layer_texture, sfTrue);
+    window.layer_pos.x = 30;
+    window.layer_pos.y = 850;
+    sfSprite_setPosition(window.layer, window.layer_pos);
     init_pop_ups(&window);
     return window;
 }

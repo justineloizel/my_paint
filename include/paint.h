@@ -121,5 +121,6 @@ void filled_square(void *storage, int id);
 void filled_circle(void *storage, int id);
 void filled_triangle(void *storage, int id);
 void quit_paint(void *storage, int id);
-
+void layer_plus(void *storage, int id);
+void layer_less(void *storage, int id);
 #endif
