@@ -66,6 +66,9 @@ typedef struct main_s {
 }main_t;
 
 int *add_visible_menu(int *actual_list, int menu);
+void quit_manual(void *storage, int id);
+void display_about(void *storage, int id);
+void display_manual(void *storage, int id);
 void drawing_activated(void *storage, int id);
 void display_cursor(main_t *storage);
 void new_file(void *storage, int id);
@@ -119,5 +122,10 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void draw_triangle(board_t *board, sfVector2i position);
         void draw_triangle_reverse(board_t *board, sfVector2i position);
         void draw_triangle_reverse_filled(board_t *board, sfVector2i position);
-
+void filled_square(void *storage, int id);
+void filled_circle(void *storage, int id);
+void filled_triangle(void *storage, int id);
+void quit_paint(void *storage, int id);
+void layer_plus(void *storage, int id);
+void layer_less(void *storage, int id);
 #endif

@@ -18,6 +18,21 @@ static const menu_store_t menu_list[] = {
         {3, {3, "assets/Help.png", {320, 0}, {1, 1}, {0, 0, 160, 40},
         {0, 43, 160, 43},{0, 86, 160, 43}, button_menu_is_clicked}},
 
+        {4, {4, "assets/manual.png", {3000, 3000}, {1, 1}, {0, 0, 160, 40},
+        {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
+
+        {5, {5, "assets/pencil.png", {3000, 3000}, {1, 1}, {0, 0, 160, 40},
+        {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
+
+        {6, {6, "assets/error.png", {1880, 0}, {1, 1}, {0, 0, 40, 40},
+        {0, 43, 40, 40},{0, 0, 40, 40}, quit_paint}},
+
+        {7, {7, "assets/add_layer.png", {80, 950}, {1, 1}, {0, 0, 40, 40},
+        {0, 43, 40, 43},{0, 86, 40, 43}, layer_plus}},
+
+        {8, {8, "assets/less_layer.png", {280, 950}, {1, 1}, {0, 0, 40, 40},
+        {0, 43, 40, 43},{0, 86, 40, 43}, layer_less}},
+
 };
 
 menu_t *init_menu(menu_store_t data)

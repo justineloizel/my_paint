@@ -36,7 +36,7 @@ void manage_event_bis(main_t *storage, sfEvent event)
 void event_manager(sfEvent event, main_t *storage)
 {
     while (sfRenderWindow_pollEvent(WINDOW.window, &event)) {
-        if (event.type == sfEvtClosed )
+        if (event.type == sfEvtClosed || storage->window.pop_up == 3)
             sfRenderWindow_close(WINDOW.window);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
             sfRenderWindow_close(WINDOW.window);
@@ -51,6 +51,18 @@ void event_manager(sfEvent event, main_t *storage)
     }
 }
 
+static void display_pop_up(main_t *storage)
+{
+    if (storage->window.pop_up == 1) {
+        sfRenderWindow_drawSprite(storage->window.window,
+        storage->window.manual, NULL);
+    }
+    if (storage->window.pop_up == 2) {
+        sfRenderWindow_drawSprite(storage->window.window,
+        storage->window.about, NULL);
+    }
+}
+
 void paint(main_t *storage)
 {
     sfEvent event;
@@ -58,9 +70,13 @@ void paint(main_t *storage)
         sfRenderWindow_clear(storage->window.window,
         (sfColor){62, 62, 62, 1});
         event_manager(event, storage);
-        sfRenderWindow_drawSprite(storage->window.window,
-        storage->palette->sprite, NULL);
+        sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
+        if (storage->window.cursor == 1)
+            sfRenderWindow_drawSprite(storage->window.window,
+            storage->palette->sprite, NULL);
         print_layer(storage);
+        if (storage->window.pop_up > 0)
+            display_pop_up(storage);
         print_button_menu(storage->list_menu, storage->window.window);
         if (storage->window.cursor > 0)
             display_cursor(storage);
