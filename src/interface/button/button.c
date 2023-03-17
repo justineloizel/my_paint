@@ -36,6 +36,15 @@ static const button_store_t button_list[] = {
         {4,"assets/error.png", {1680, 180}, {1, 1}, {0, 0, 40, 40},\
         {0, 43, 40, 43}, {0, 0, 40, 40}, quit_manual},
 
+        {5,"assets/filled_square.png", {80, 350}, {1, 1}, {0, 0, 40, 40},\
+        {0, 43, 40, 43}, {0, 86, 40, 43}, filled_square},
+
+        {5,"assets/filled_circle.png", {180, 350}, {1, 1}, {0, 0, 40, 40},\
+        {0, 43, 40, 43}, {0, 86, 40, 43}, filled_circle},
+
+        {5,"assets/filled_triangle.png", {280, 350}, {1, 1}, {0, 0, 40, 40},\
+        {0, 43, 40, 43}, {0, 86, 40, 43}, filled_triangle},
+
 
 };
 

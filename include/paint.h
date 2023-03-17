@@ -117,5 +117,9 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void draw_triangle(board_t *board, sfVector2i position);
         void draw_triangle_reverse(board_t *board, sfVector2i position);
         void draw_triangle_reverse_filled(board_t *board, sfVector2i position);
+void filled_square(void *storage, int id);
+void filled_circle(void *storage, int id);
+void filled_triangle(void *storage, int id);
+void quit_paint(void *storage, int id);
 
 #endif

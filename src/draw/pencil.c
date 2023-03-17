@@ -33,9 +33,7 @@ void drawing_activated(void *storage, int id)
     ((main_t *)storage)->window.cursor = 1;
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
-    // ((main_t *)storage)->list_menu->list_menu = add_visible_menu(((main_t *)storage)->list_menu->list_menu, 3);
-    // menu pops up with possibility to change line thickness +
-    // color palette (color picker)!
+    ((main_t *)storage)->list_menu->list_menu = add_visible_menu(((main_t *)storage)->list_menu->list_menu, 5);
 }
 
 void eraser_activated(void *storage, int id)
@@ -43,6 +41,6 @@ void eraser_activated(void *storage, int id)
     ((main_t *)storage)->window.cursor = 2;
     sfRenderWindow_setMouseCursorVisible(((main_t *)storage)->window.window, 0);
     button_menu_is_clicked(storage, id);
-    // menu pops up with possibility to change shape and thickness
-    // add_visible_menu(donner id du menu créé mais ps visible)
+    ((main_t *)storage)->list_menu->list_menu = add_visible_menu(((main_t *)storage)->list_menu->list_menu, 5);
+
 }
