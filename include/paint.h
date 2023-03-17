@@ -31,6 +31,34 @@
     40, 80\
     }
     #define IS_NULL(X) (X == NULL) ? NULL : free(X);
+
+enum pop_up {
+        NO_POP,
+        MANUAL,
+        ABOUT,
+        QUIT_POP,
+        SAVE,
+        OPEN,
+};
+
+enum cursor {
+        NONE,
+        PENCIL,
+        ERASER
+};
+
+enum menu_number {
+        NO_MENU,
+        FILE_MENU,
+        EDIT,
+        HELP,
+        POP_TOOL,
+        PENCIL_TOOL,
+        QUIT,
+        ADD_LAYER,
+        LESS_LAYER,
+        SAVE_POP,
+};
 typedef struct framebuffer_t    {
     sfUint8 *pixels;
     unsigned int width;
@@ -126,4 +154,9 @@ void filled_triangle(void *storage, int id);
 void quit_paint(void *storage, int id);
 void layer_plus(void *storage, int id);
 void layer_less(void *storage, int id);
+void save_file(void *storage, int id);
+void save_file_jpg(void *storage, int id);
+void save_file_png(void *storage, int id);
+void save_file_bmp(void *storage, int id);
+void open_file(void *storage, int id);
 #endif

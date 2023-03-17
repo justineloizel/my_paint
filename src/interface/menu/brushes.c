@@ -25,5 +25,5 @@ void filled_triangle(void *storage, UNUSED int id)
 void quit_paint(void *storage, int id)
 {
     button_menu_is_clicked(storage, id);
-    ((main_t *)storage)->window.pop_up = 3;
+    ((main_t *)storage)->window.pop_up = QUIT;
 }

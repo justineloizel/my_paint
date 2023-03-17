@@ -23,6 +23,13 @@ static void init_pop_ups(window_t *window)
     window->about_pos.x = 550;
     window->about_pos.y = 100;
     sfSprite_setPosition(window->about, window->about_pos);
+    window->save_pop = sfSprite_create();
+    window->save_texture =
+    sfTexture_createFromFile("assets/save_pop_up.png", NULL);
+    sfSprite_setTexture(window->save_pop, window->save_texture, sfTrue);
+    window->save_pos.x = 550;
+    window->save_pos.y = 100;
+    sfSprite_setPosition(window->save_pop, window->save_pos);
     window->shape = sfSprite_create();
     window->shape_texture = sfTexture_createFromFile("assets/shape.png", NULL);
     sfSprite_setTexture(window->shape, window->shape_texture, sfTrue);

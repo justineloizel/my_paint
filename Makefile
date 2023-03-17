@@ -46,6 +46,7 @@ SRC += help.c
 SRC += brushes.c
 SRC += layer_menu.c
 SRC += get_input.c
+SRC += open_file.c
 
 CFLAGS = -I include/ -Wall -Wextra
 
