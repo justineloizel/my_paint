@@ -52,6 +52,8 @@ void destroy_storage(main_t *storage)
 
 void delete_framebuffer(framebuffer_t *fb)
 {
+    if (fb == NULL)
+        return;
     sfTexture_destroy(fb->texture);
     sfSprite_destroy(fb->sprite);
     free(fb->pixels);
