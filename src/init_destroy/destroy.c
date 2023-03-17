@@ -47,6 +47,7 @@ void destroy_storage(main_t *storage)
     free_window(&storage->window);
     free_list_menu(storage->list_menu);
     board_destroy(storage->board);
+    destroy_palette(storage->palette);
     free(storage);
 }
 

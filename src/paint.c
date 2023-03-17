@@ -24,6 +24,13 @@ void manage_event_bis(main_t *storage, sfEvent event)
     }
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM)
         save_drawing_to_jpg(storage, 3);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ)
+        sfView_zoom(BOARD->view, 1.2f);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
+        sfView_zoom(BOARD->view, 0.833f);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ)
+        sfView_reset(BOARD->view, (sfFloatRect)
+        {POS_BOARD_ARG, SIZE_BOARD_ARG});
 }
 
 void event_manager(sfEvent event, main_t *storage)

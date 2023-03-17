@@ -49,6 +49,7 @@ typedef struct board {
     int tools;
     sfClock *clock;
     sfRectangleShape *board;
+    sfView *view;
 }board_t;
 
 typedef struct color_palette {
@@ -81,7 +82,7 @@ void button_menu_is_clicked(void *storage, int id);
 void recalcul_position_menu(main_t *storage);
 void put_pixel(framebuffer_t *framebuffer, unsigned int x,\
 unsigned int y, sfColor color);
-sfVector2f get_valid_position(main_t *storage, sfVector2f position);
+sfVector2f get_valid_position(main_t *storage, sfVector2f position, int view);
 
         void draw_object(board_t *board, sfVector2i position);
 //init
@@ -110,6 +111,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void board_destroy(board_t *board);
         void delete_framebuffer(framebuffer_t *fb);
         void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
+        void destroy_palette(color_palette_t *palette);
 
 //brush
         void draw_filled_square(board_t *board, sfVector2i position);

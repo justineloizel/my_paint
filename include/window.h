@@ -39,7 +39,7 @@ typedef struct window {
     int cursor;
     int pop_up;
     int pen;
-    sfView const *view;
+    sfView *view;
 }window_t;
 window_t init_window(void);
 void free_window(window_t *window);
