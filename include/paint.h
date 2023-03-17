@@ -49,6 +49,7 @@ typedef struct board {
     int tools;
     sfClock *clock;
     sfRectangleShape *board;
+    short int nb_zoom;
     sfView *view;
 }board_t;
 
@@ -104,6 +105,8 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void save_drawing_to_bmp(main_t *storage, int id);
         void fill_framebuffer(framebuffer_t *framebuffer, sfColor color);
         char *get_input(void);
+        void zoom_in(main_t *storage);
+        void zoom_out(main_t *storage);
 
 
 //destroy

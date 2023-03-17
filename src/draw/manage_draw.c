@@ -12,7 +12,7 @@ int is_board(main_t *storage)
     sfVector2f pos_board = sfRectangleShape_getPosition(storage->board->board);
     sfVector2f size_board = sfRectangleShape_getSize(storage->board->board);
     sfVector2f mouse_pos = get_valid_position(storage,
-                                              V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
+    V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
 
     if (mouse_pos.x >= pos_board.x &&
     mouse_pos.x <= pos_board.x + size_board.x
@@ -27,7 +27,8 @@ void is_in_palette(main_t *storage)
     sfVector2f pos_palette = sfSprite_getPosition(storage->palette->sprite);
     sfVector2u size_palette = sfImage_getSize(storage->palette->image);
     sfVector2f mouse_pos = get_valid_position(storage,
-                                              V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
+
+    V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
 
     if (mouse_pos.x >= pos_palette.x && mouse_pos.x <= pos_palette.x +
     (double)size_palette.x
@@ -43,9 +44,8 @@ void manage_draw(main_t *storage)
 {
     sfBool mouse_is_pressed = sfMouse_isButtonPressed(sfMouseLeft);
     if (mouse_is_pressed && is_board(storage))
-        draw_object(storage->board, V2F_V2I(get_valid_position(storage,
-                                                               V2I_V2F(sfMouse_getPositionRenderWindow(
-                                                                       storage->window.window)), 1)));
+        draw_object(storage->board, V2F_V2I(get_valid_position(storage,\
+        V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 1)));
     else if (mouse_is_pressed)
         is_in_palette(storage);
 }

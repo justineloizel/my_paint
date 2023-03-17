@@ -73,8 +73,8 @@ void print_layer(main_t *storage)
     sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
     for (; fb != NULL; fb = fb->next) {
         sfRenderWindow_drawSprite(storage->window.window, fb->sprite, NULL);
-    sfRenderWindow_drawSprite(storage->window.window, storage->window.layer,
-    NULL);
     }
     sfRenderWindow_setView(WINDOW.window, WINDOW.view);
+    sfRenderWindow_drawSprite(storage->window.window, storage->window.layer,
+    NULL);
 }
