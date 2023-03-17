@@ -29,8 +29,10 @@ void is_in_palette(main_t *storage)
     sfVector2f mouse_pos = get_valid_position(storage,
     V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
 
-    if (mouse_pos.x >= pos_palette.x && mouse_pos.x <= pos_palette.x + (double)size_palette.x
-    && mouse_pos.y >= pos_palette.y && mouse_pos.y <= pos_palette.y + (double)size_palette.y) {
+    if (mouse_pos.x >= pos_palette.x && mouse_pos.x <= pos_palette.x +
+    (double)size_palette.x
+    && mouse_pos.y >= pos_palette.y && mouse_pos.y <= pos_palette.y +
+    (double)size_palette.y) {
         BOARD->color = sfImage_getPixel(storage->palette->image, (size_t)(mouse_pos.x - PALETTE_POS.x), (size_t)(mouse_pos.y - PALETTE_POS.y));
     }
 }
