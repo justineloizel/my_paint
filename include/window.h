@@ -37,6 +37,9 @@ typedef struct window {
     sfSprite *save_pop;
     sfTexture *save_texture;
     sfVector2f save_pos;
+    sfSprite *open_pop;
+    sfTexture *open_texture;
+    sfVector2f open_pos;
     sfSprite *thickness;
     sfTexture *thick_texture;
     sfVector2f thick_pos;

@@ -161,4 +161,6 @@ void save_file_bmp(void *storage, int id);
 void open_file(void *storage, int id);
 void thicker_brush(void *storage, int id);
 void thinner_brush(void *storage, int id);
+char *get_filepath(void);
+void check_if_open_file(main_t *storage);
 #endif

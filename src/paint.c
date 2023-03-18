@@ -8,16 +8,6 @@
 #include "myprintf.h"
 #include "paint.h"
 
-void manage_event_bis(main_t *storage, sfEvent event)
-{
-    static float test = 1;
-
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-        add_layer(BOARD->layerList, "pokemon.jpg");
-        BOARD->actual_layer = BOARD->layerList->tail;
-    }
-}
-
 void event_manager(sfEvent event, main_t *storage)
 {
     while (sfRenderWindow_pollEvent(WINDOW.window, &event)) {
@@ -28,11 +18,8 @@ void event_manager(sfEvent event, main_t *storage)
         if (event.type == sfEvtMouseButtonPressed) {
             verify_menu_click(event.mouseButton, storage);
         }
-        if (event.type == sfEvtResized) {
+        if (event.type == sfEvtResized)
             recalcul_position_menu(storage);
-        }
-        manage_event_bis(storage, event);
-
     }
 }
 
@@ -49,6 +36,10 @@ static void display_pop_up(main_t *storage)
     if (storage->window.pop_up == SAVE) {
         sfRenderWindow_drawSprite(storage->window.window,
         storage->window.save_pop, NULL);
+    }
+    if (storage->window.pop_up == OPEN) {
+        sfRenderWindow_drawSprite(storage->window.window,
+        storage->window.open_pop, NULL);
     }
 }
 
@@ -72,6 +63,7 @@ void paint(main_t *storage)
         else
             sfRenderWindow_setMouseCursorVisible(storage->window.window, 1);
         sfRenderWindow_display(storage->window.window);
+        check_if_open_file(storage);
     }
 }
 

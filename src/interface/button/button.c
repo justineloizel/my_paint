@@ -13,7 +13,7 @@ static const button_store_t button_list[] = {
         {0, 43, 160, 43}, {0, 0, 160, 40}, new_file},
 
         {FILE_MENU, "assets/open_file.png", {0, 86}, {1, 1}, {0, 0, 160, 40},\
-        {0, 43, 160, 43}, {0, 0, 160, 40}, NULL},
+        {0, 43, 160, 43}, {0, 0, 160, 40}, open_file},
 
         {FILE_MENU,"assets/save_file.png", {0, 129}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, save_file},
