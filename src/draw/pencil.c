@@ -11,7 +11,7 @@ static void display_cursor_bis(main_t *storage)
 {
     if (storage->window.cursor == 2) {
         storage->window.eraser_pos = get_valid_position(storage,
-        V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
+        V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
         storage->window.eraser_pos.y -= 24;
         sfSprite_setPosition(storage->window.eraser,
         storage->window.eraser_pos);
@@ -29,7 +29,7 @@ void display_cursor(main_t *storage)
 {
     if (storage->window.cursor == 1) {
         storage->window.pen_pos = get_valid_position(storage,
-        V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
+        V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)), 0);
         storage->window.pen_pos.y -= 24;
         sfSprite_setPosition(storage->window.pencil, storage->window.pen_pos);
         sfRenderWindow_drawSprite(storage->window.window,

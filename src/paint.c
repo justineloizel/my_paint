@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** B-MUL-200-REN-2-1-mypaint-tom.lefoix
 ** File description:
 ** paint.c
@@ -10,20 +10,25 @@
 
 void manage_event_bis(main_t *storage, sfEvent event)
 {
-    static float test = 1;
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
         add_layer(storage->board->layerList, NULL);
         storage->board->actual_layer = storage->board->layerList->tail;
     }
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
         manager_delete_layer(storage, 0);
-    }
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
         add_layer(BOARD->layerList, "pokemon.jpg");
         BOARD->actual_layer = BOARD->layerList->tail;
     }
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyM)
-        save_drawing_to_jpg(storage, 3);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ)
+        zoom_out(storage);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
+        zoom_in(storage);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ)
+        sfView_reset(BOARD->view, REC_BOARD);
+    if (event.type == sfEvtTextEntered)
+        if (event.text.unicode < 128)
+            printf("code : %c\n", event.text.unicode);
 }
 
 void event_manager(sfEvent event, main_t *storage)
@@ -63,7 +68,6 @@ void paint(main_t *storage)
         sfRenderWindow_clear(storage->window.window,
         (sfColor){62, 62, 62, 1});
         event_manager(event, storage);
-        sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
         if (storage->window.cursor == 1)
             sfRenderWindow_drawSprite(storage->window.window,
             storage->palette->sprite, NULL);
