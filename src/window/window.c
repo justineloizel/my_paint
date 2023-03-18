@@ -40,6 +40,12 @@ static void init_bis(window_t *window)
     window->shape_pos.x = 30;
     window->shape_pos.y = 310;
     sfSprite_setPosition(window->shape, window->shape_pos);
+    window->thickness = sfSprite_create();
+    window->thick_texture = sfTexture_createFromFile("assets/thickness.png", NULL);
+    sfSprite_setTexture(window->thickness, window->thick_texture, sfTrue);
+    window->thick_pos.x = 30;
+    window->thick_pos.y = 410;
+    sfSprite_setPosition(window->thickness, window->thick_pos);
     window->cursor = 0;
     window->pop_up = 0;
     window->pen = 0;

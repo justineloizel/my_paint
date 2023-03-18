@@ -20,9 +20,12 @@ static void check_tools(main_t *storage)
         storage->board->color = sfTransparent;
         manage_draw(storage);
     }
-    if (storage->window.pen == 1)
+    if (storage->window.pen == 1) {
         sfRenderWindow_drawSprite(storage->window.window,
         storage->window.shape, NULL);
+        sfRenderWindow_drawSprite(storage->window.window,
+        storage->window.thickness, NULL);
+    }
 }
 
 void display_cursor(main_t *storage)

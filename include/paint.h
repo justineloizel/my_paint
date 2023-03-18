@@ -159,4 +159,6 @@ void save_file_jpg(void *storage, int id);
 void save_file_png(void *storage, int id);
 void save_file_bmp(void *storage, int id);
 void open_file(void *storage, int id);
+void thicker_brush(void *storage, int id);
+void thinner_brush(void *storage, int id);
 #endif

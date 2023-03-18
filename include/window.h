@@ -37,6 +37,9 @@ typedef struct window {
     sfSprite *save_pop;
     sfTexture *save_texture;
     sfVector2f save_pos;
+    sfSprite *thickness;
+    sfTexture *thick_texture;
+    sfVector2f thick_pos;
     sfVideoMode mode;
     sfClock *clock;
     int cursor;

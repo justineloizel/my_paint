@@ -30,6 +30,9 @@ void save_file(void *storage, int id)
 
 void save_file_jpg(void *storage, int id)
 {
+    // dans fonction save:
+    // enlever events pour empêcher user de toucher à la fenêtre
+    // en attendant de recevoir un filename
     save_drawing_to_jpg(((main_t *)storage), id);
     button_menu_is_clicked(storage, id);
 }

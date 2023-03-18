@@ -67,9 +67,10 @@ void print_layer(main_t *storage)
 {
     framebuffer_t *fb = storage->board->layerList->head;
 
+    sfRenderWindow_drawSprite(storage->window.window, storage->window.layer,
+    NULL);
     if (fb == NULL)
         return;
-
     for (; fb != NULL; fb = fb->next)
         sfRenderWindow_drawSprite(storage->window.window, fb->sprite, NULL);
 }

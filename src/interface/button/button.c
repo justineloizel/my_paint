@@ -45,6 +45,12 @@ static const button_store_t button_list[] = {
         {PENCIL_TOOL,"assets/filled_triangle.png", {280, 350}, {1, 1},\
         {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, filled_triangle},
 
+        {PENCIL_TOOL,"assets/plus_button.png", {80, 450}, {1, 1},\
+        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, thicker_brush},
+
+        {PENCIL_TOOL,"assets/minus_button.png", {280, 450}, {1, 1},\
+        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, thinner_brush},
+
         {SAVE_POP,"assets/jpg_button.png", {800, 400}, {1, 1},\
         {0, 0, 160, 40}, {0, 43, 160, 43}, {0, 86, 160, 43}, save_file_jpg},
 

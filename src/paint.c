@@ -38,8 +38,6 @@ void event_manager(sfEvent event, main_t *storage)
 
 static void display_pop_up(main_t *storage)
 {
-    sfRenderWindow_drawSprite(storage->window.window, storage->window.layer,
-    NULL);
     if (storage->window.pop_up == MANUAL) {
         sfRenderWindow_drawSprite(storage->window.window,
         storage->window.manual, NULL);
