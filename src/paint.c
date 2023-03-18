@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022$**$
+** EPITECH PROJECT, 2023
 ** B-MUL-200-REN-2-1-mypaint-tom.lefoix
 ** File description:
 ** paint.c
@@ -26,6 +26,9 @@ void manage_event_bis(main_t *storage, sfEvent event)
         zoom_in(storage);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ)
         sfView_reset(BOARD->view, REC_BOARD);
+    if (event.type == sfEvtTextEntered)
+        if (event.text.unicode < 128)
+            printf("code : %c\n", event.text.unicode);
 }
 
 void event_manager(sfEvent event, main_t *storage)
