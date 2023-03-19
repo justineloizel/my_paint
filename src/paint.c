@@ -24,11 +24,10 @@ void manage_event_bis(main_t *storage, sfEvent event)
         zoom_out(storage);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
         zoom_in(storage);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyT)
+        chat_box(storage);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ)
         sfView_reset(BOARD->view, REC_BOARD);
-    if (event.type == sfEvtTextEntered)
-        if (event.text.unicode < 128)
-            printf("code : %c\n", event.text.unicode);
 }
 
 void event_manager(sfEvent event, main_t *storage)
@@ -65,8 +64,7 @@ void paint(main_t *storage)
 {
     sfEvent event;
     while (sfRenderWindow_isOpen(storage->window.window)) {
-        sfRenderWindow_clear(storage->window.window,
-        (sfColor){62, 62, 62, 1});
+        sfRenderWindow_clear(storage->window.window,BACKGROUND_COLOR);
         event_manager(event, storage);
         if (storage->window.cursor == 1)
             sfRenderWindow_drawSprite(storage->window.window,

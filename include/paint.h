@@ -30,6 +30,9 @@
     #define PALETTE_POS (sfVector2f){\
     40, 80\
     }
+    #define BACKGROUND_COLOR (sfColor){\
+    62, 62, 62, 1\
+    }
     #define IS_NULL(X) (X == NULL) ? NULL : free(X);
 typedef struct framebuffer_t    {
     sfUint8 *pixels;
@@ -40,6 +43,13 @@ typedef struct framebuffer_t    {
     struct framebuffer_t *next;
     struct framebuffer_t *prev;
 } framebuffer_t;
+
+typedef struct chat_box {
+    sfFont *font;
+    sfText *text;
+    sfRectangleShape *bg;
+    char *msg;
+} chat_box_t;
 
 typedef struct board {
     layer_list_t *layerList;
@@ -131,4 +141,6 @@ void filled_triangle(void *storage, int id);
 void quit_paint(void *storage, int id);
 void layer_plus(void *storage, int id);
 void layer_less(void *storage, int id);
+
+char *chat_box(main_t *storage);
 #endif
