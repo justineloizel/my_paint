@@ -67,9 +67,9 @@ void button_menu_is_clicked(void *storage, int id)
         menu->menu_button->rec_click = tmp;
         list_menus->list_menu =
         delete_visible_menu(list_menus->list_menu, index);
-    } else {
-        list_menus->list_menu = add_visible_menu(list_menus->list_menu, abs(id));
-    }
+    } else
+        list_menus->list_menu = add_visible_menu(list_menus->list_menu,
+        abs(id));
     check_side_menu(((main_t *)storage), id);
     check_top_menu(storage, id);
 }

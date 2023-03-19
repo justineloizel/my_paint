@@ -31,7 +31,7 @@ void check_if_open_file(main_t *storage)
     char *filepath;
 
     if (storage->window.pop_up == OPEN) {
-        filepath = get_filepath();
+        filepath = chat_box(storage);
         if (filepath == NULL)
             return;
         add_layer(BOARD->layerList, filepath);
@@ -39,7 +39,6 @@ void check_if_open_file(main_t *storage)
         storage->window.pop_up = NO_POP;
         button_menu_is_clicked(storage, POP_TOOL);
     }
-    return;
 }
 
 void open_file(void *storage, int id)

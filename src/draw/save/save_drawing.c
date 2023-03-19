@@ -42,7 +42,7 @@ void save_drawing_to_jpg(main_t *storage, UNUSED int id)
 {
     framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     sfImage *image;
-    char *input = get_input();
+    char *input = chat_box(storage);
 
     if (fb_save == NULL || input == NULL) {
         delete_framebuffer(fb_save);
@@ -62,7 +62,7 @@ void save_drawing_to_png(main_t *storage, UNUSED int id)
 {
     framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     sfImage *image;
-    char *input = get_input();
+    char *input = chat_box(storage);
 
     if (fb_save == NULL || input == NULL) {
         delete_framebuffer(fb_save);
@@ -81,7 +81,7 @@ void save_drawing_to_bmp(main_t *storage, UNUSED int id)
 {
     framebuffer_t *fb_save = framebuffer_create(SIZE_BOARD.x, SIZE_BOARD.y);
     sfImage *image;
-    char *input = get_input();
+    char *input = chat_box(storage);
 
     if (fb_save == NULL || input == NULL) {
         delete_framebuffer(fb_save);

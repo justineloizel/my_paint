@@ -18,6 +18,10 @@ static void manage_event_bis(main_t *storage, sfEvent event)
         storage->board->nb_zoom = 0;
         sfView_reset(BOARD->view, REC_BOARD);
     }
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
+        add_layer(BOARD->layerList, (char *)sfClipboard_getString());
+        BOARD->actual_layer = BOARD->layerList->tail;
+    }
 }
 
 void event_manager(sfEvent event, main_t *storage)
@@ -37,7 +41,7 @@ void event_manager(sfEvent event, main_t *storage)
     manage_event_bis(storage, event);
 }
 
-static void display_pop_up(main_t *storage)
+void display_pop_up(main_t *storage)
 {
     sprites_t *sprite = get_sprite(storage->window.sprites, MANUAL_SPRITE);
     if (storage->window.pop_up == MANUAL) {

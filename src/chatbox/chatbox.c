@@ -9,6 +9,7 @@
 #include "my.h"
 chat_box_t *init_chat_box(void);
 void destroy_chat_box(chat_box_t *chat_box);
+void display_pop_up(main_t *storage);
 
 static char *my_str_cat_char(chat_box_t *chat_box, char c)
 {
@@ -43,6 +44,8 @@ static void event_manager_chat_box(sfEvent event, chat_box_t *chat_box,
 int *check, main_t *storage)
 {
     print_layer(storage);
+    if (storage->window.pop_up > 0)
+        display_pop_up(storage);
     print_button_menu(storage->list_menu, WINDOW.window);
     sfRenderWindow_drawRectangleShape(WINDOW.window, chat_box->bg, NULL);
     sfRenderWindow_drawText(WINDOW.window, chat_box->text, NULL);
@@ -53,7 +56,7 @@ int *check, main_t *storage)
             *check = -1;
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEnter)
             *check = 0;
-        if (event.type == sfEvtTextEntered)
+        if (event.type == sfEvtTextEntered && event.text.unicode != 13)
             event_text_entered(chat_box, event);
     }
 }
