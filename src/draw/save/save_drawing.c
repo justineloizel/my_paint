@@ -23,10 +23,11 @@ void concat_framebuffer(framebuffer_t *framebuffer, framebuffer_t *layer)
 {
     for (size_t i = 0; i < framebuffer->width * framebuffer->height * 4;
     i += 4) {
-        if (layer->pixels[i] == sfTransparent.r &&
+        if ((layer->pixels[i] == sfTransparent.r &&
             layer->pixels[i + 1] == sfTransparent.g &&
             layer->pixels[i + 2] == sfTransparent.b &&
-            layer->pixels[i + 3] == sfTransparent.a)
+            layer->pixels[i + 3] == sfTransparent.a) ||
+            !framebuffer->is_visible)
             continue;
         framebuffer->pixels[i] = layer->pixels[i];
         framebuffer->pixels[i + 1] = layer->pixels[i + 1];

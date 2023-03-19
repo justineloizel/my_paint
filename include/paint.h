@@ -78,6 +78,7 @@ typedef struct framebuffer_t    {
     unsigned int height;
     sfTexture *texture;
     sfSprite *sprite;
+    int is_visible;
     struct framebuffer_t *next;
     struct framebuffer_t *prev;
 } framebuffer_t;

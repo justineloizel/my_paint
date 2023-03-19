@@ -24,6 +24,7 @@ unsigned int height, int fill_fb)
 {
     if (fill_fb)
         fill_framebuffer(framebuffer, sfTransparent);
+    framebuffer->is_visible = 1;
     sfSprite_setTexture(framebuffer->sprite, framebuffer->texture, sfTrue);
     sfSprite_setPosition(framebuffer->sprite, POS_BOARD);
     sfTexture_updateFromPixels(framebuffer->texture, framebuffer->pixels,
@@ -47,9 +48,8 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
     framebuffer->height = height;
     framebuffer->texture = sfTexture_create(width, height);
     framebuffer->sprite = sfSprite_create();
-    if (framebuffer->texture == NULL || framebuffer->sprite == NULL) {
+    if (framebuffer->texture == NULL || framebuffer->sprite == NULL)
         return (NULL);
-    }
     set_framebuffer(framebuffer, width, height, sfTrue);
     return (framebuffer);
 }
