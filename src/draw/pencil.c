@@ -9,6 +9,8 @@
 
 static void check_tools(main_t *storage)
 {
+    sprites_t *sprite = get_sprite(storage->window.sprites, SHAPE);
+
     if (storage->window.cursor == ERASER) {
         storage->window.eraser_pos = get_valid_position(storage,
         V2I_V2F(sfMouse_getPositionRenderWindow(storage->window.window)));
@@ -22,9 +24,10 @@ static void check_tools(main_t *storage)
     }
     if (storage->window.pen == 1) {
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.shape, NULL);
+        sprite->sprite, NULL);
+        sprite = get_sprite(storage->window.sprites, THICKNESS);
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.thickness, NULL);
+        sprite->sprite, NULL);
     }
 }
 

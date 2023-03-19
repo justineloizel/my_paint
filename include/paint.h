@@ -32,6 +32,16 @@
     }
     #define IS_NULL(X) (X == NULL) ? NULL : free(X);
 
+enum sprites_number {
+        LAYERS,
+        THICKNESS,
+        MANUAL_SPRITE,
+        ABOUT_SPRITE,
+        SAVE_SPRITE,
+        OPEN_SPRITE,
+        SHAPE,
+};
+
 enum pop_up {
         NO_POP,
         MANUAL,

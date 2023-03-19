@@ -25,21 +25,25 @@ void event_manager(sfEvent event, main_t *storage)
 
 static void display_pop_up(main_t *storage)
 {
+    sprites_t *sprite = get_sprite(storage->window.sprites, MANUAL_SPRITE);
     if (storage->window.pop_up == MANUAL) {
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.manual, NULL);
+        sprite->sprite, NULL);
     }
     if (storage->window.pop_up == ABOUT) {
+        sprite = get_sprite(storage->window.sprites, ABOUT_SPRITE);
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.about, NULL);
+        sprite->sprite, NULL);
     }
     if (storage->window.pop_up == SAVE) {
+        sprite = get_sprite(storage->window.sprites, SAVE_SPRITE);
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.save_pop, NULL);
+        sprite->sprite, NULL);
     }
     if (storage->window.pop_up == OPEN) {
+        sprite = get_sprite(storage->window.sprites, OPEN_SPRITE);
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.open_pop, NULL);
+        sprite->sprite, NULL);
     }
 }
 

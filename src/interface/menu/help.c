@@ -26,7 +26,8 @@ void display_manual(void *storage, int id)
 
 void quit_manual(void *storage, int id)
 {
-    int index = is_visible_menu(SAVE_POP, ((main_t *)storage)->list_menu->list_menu);
+    int index = is_visible_menu(SAVE_POP,
+    ((main_t *)storage)->list_menu->list_menu);
     button_menu_is_clicked(storage, id);
     ((main_t *)storage)->window.pop_up = 0;
     ((main_t *)storage)->list_menu->list_menu =
