@@ -28,11 +28,17 @@ static const menu_store_t menu_list[] = {
         {QUIT, {QUIT, "assets/error.png", {1880, 0}, {1, 1}, {0, 0, 40, 40},
         {0, 43, 40, 40},{0, 0, 40, 40}, quit_paint}},
 
-        {ADD_LAYER, {ADD_LAYER, "assets/add_layer.png", {80, 950}, {1, 1},
-        {0, 0, 40, 40}, {0, 43, 40, 43},{0, 86, 40, 43}, layer_plus}},
+        {ADD_LAYER, {ADD_LAYER, "assets/add_layer.png", {280, 950}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, layer_plus}},
 
-        {LESS_LAYER, {LESS_LAYER, "assets/less_layer.png", {280, 950}, {1, 1},
-        {0, 0, 40, 40}, {0, 43, 40, 43},{0, 86, 40, 43}, layer_less}},
+        {LESS_LAYER, {LESS_LAYER, "assets/less_layer.png", {80, 950}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, layer_less}},
+
+        {TOP_NAV, {TOP_NAV, "assets/top_nav.png", {150, 900}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, nav_top_layer}},
+
+        {BOTTOM_NAV, {BOTTOM_NAV, "assets/bottom_nav.png", {190, 900}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, nav_bottom_layer}},
 
         {SAVE_POP, {SAVE_POP, "assets/save_file.png", {3000, 3000}, {1, 1},
         {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43},

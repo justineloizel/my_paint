@@ -47,6 +47,7 @@ SRC += color_palette.c
 SRC += help.c
 SRC += brushes.c
 SRC += layer_menu.c
+SRC += nav_layers.c
 SRC += get_input.c
 SRC += open_file.c
 SRC += sprites.c

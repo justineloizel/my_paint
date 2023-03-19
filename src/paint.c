@@ -32,6 +32,7 @@ void event_manager(sfEvent event, main_t *storage)
         }
         if (event.type == sfEvtResized)
             recalcul_position_menu(storage);
+        manage_event_bis(storage, event);
     }
 }
 
@@ -63,7 +64,7 @@ void paint(main_t *storage)
 {
     sfEvent event;
     while (sfRenderWindow_isOpen(storage->window.window)) {
-        sfRenderWindow_clear(storage->window.window,BACKGROUND_COLOR);
+        sfRenderWindow_clear(storage->window.window, BACKGROUND_COLOR);
         event_manager(event, storage);
         if (storage->window.cursor == PENCIL)
             sfRenderWindow_drawSprite(storage->window.window,

@@ -47,7 +47,7 @@ typedef struct window {
     int cursor;
     int pop_up;
     int pen;
-    list_sprites_t *sprites
+    list_sprites_t *sprites;
     sfView *view;
 } window_t;
 
