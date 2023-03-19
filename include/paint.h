@@ -163,4 +163,5 @@ void thicker_brush(void *storage, int id);
 void thinner_brush(void *storage, int id);
 char *get_filepath(void);
 void check_if_open_file(main_t *storage);
+int is_visible_menu(int id, int const *list);
 #endif

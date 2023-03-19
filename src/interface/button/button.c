@@ -9,25 +9,25 @@
 #include "myprintf.h"
 
 static const button_store_t button_list[] = {
-        {FILE_MENU,"assets/new_file.png", {0, 43}, {1, 1}, {0, 0, 160, 40},\
+        {FILE_MENU,"assets/new_file.png", {0, 40}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, new_file},
 
-        {FILE_MENU, "assets/open_file.png", {0, 86}, {1, 1}, {0, 0, 160, 40},\
+        {FILE_MENU, "assets/open_file.png", {0, 80}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, open_file},
 
-        {FILE_MENU,"assets/save_file.png", {0, 129}, {1, 1}, {0, 0, 160, 40},\
+        {FILE_MENU,"assets/save_file.png", {0, 120}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, save_file},
 
-        {EDIT, "assets/pencil.png", {160, 43}, {1, 1}, {0, 0, 160, 40},\
+        {EDIT, "assets/pencil.png", {160, 40}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, drawing_activated},
 
-        {EDIT,"assets/eraser.png", {160, 86}, {1, 1}, {0, 0, 160, 40},\
+        {EDIT,"assets/eraser.png", {160, 80}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, eraser_activated},
 
-        {HELP, "assets/about.png", {320, 43}, {1, 1}, {0, 0, 160, 40},\
+        {HELP, "assets/about.png", {320, 40}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, display_about},
 
-        {HELP,"assets/manual.png", {320, 86}, {1, 1}, {0, 0, 160, 40},\
+        {HELP,"assets/manual.png", {320, 80}, {1, 1}, {0, 0, 160, 40},\
         {0, 43, 160, 43}, {0, 0, 160, 40}, display_manual},
 
         {POP_TOOL,"assets/Ok.png", {1100, 700}, {1, 1}, {0, 0, 160, 40},\
@@ -37,19 +37,19 @@ static const button_store_t button_list[] = {
         {0, 43, 40, 43}, {0, 0, 40, 40}, quit_manual},
 
         {PENCIL_TOOL,"assets/filled_square.png", {80, 350}, {1, 1},\
-        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, filled_square},
+        {0, 0, 40, 40}, {0, 43, 40, 40}, {0, 86, 40, 40}, filled_square},
 
         {PENCIL_TOOL,"assets/filled_circle.png", {180, 350}, {1, 1},\
-        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, filled_circle},
+        {0, 0, 40, 40}, {0, 43, 40, 40}, {0, 86, 40, 40}, filled_circle},
 
         {PENCIL_TOOL,"assets/filled_triangle.png", {280, 350}, {1, 1},\
-        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, filled_triangle},
+        {0, 0, 40, 40}, {0, 43, 40, 40}, {0, 86, 40, 40}, filled_triangle},
 
         {PENCIL_TOOL,"assets/plus_button.png", {80, 450}, {1, 1},\
-        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, thicker_brush},
+        {0, 0, 40, 40}, {0, 43, 40, 40}, {0, 86, 40, 40}, thicker_brush},
 
         {PENCIL_TOOL,"assets/minus_button.png", {280, 450}, {1, 1},\
-        {0, 0, 40, 40}, {0, 43, 40, 43}, {0, 86, 40, 43}, thinner_brush},
+        {0, 0, 40, 40}, {0, 43, 40, 40}, {0, 86, 40, 40}, thinner_brush},
 
         {SAVE_POP,"assets/jpg_button.png", {800, 400}, {1, 1},\
         {0, 0, 160, 40}, {0, 43, 160, 43}, {0, 86, 160, 43}, save_file_jpg},
