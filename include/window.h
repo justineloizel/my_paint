@@ -14,10 +14,10 @@
     #include <time.h>
     #include <math.h>
     #define POS_CHAT_BOX (sfVector2f){\
-    1075, 600\
+    1000, 620\
     }
     #define SIZE_CHAT_BOX (sfVector2f){\
-    200, 35\
+    400, 35\
     }
 typedef struct sprites_store {
     int id;
