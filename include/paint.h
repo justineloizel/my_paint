@@ -70,6 +70,8 @@ enum menu_number {
         QUIT,
         ADD_LAYER,
         LESS_LAYER,
+        TOP_NAV,
+        BOTTOM_NAV,
         SAVE_POP,
 };
 typedef struct framebuffer_t    {
@@ -191,4 +193,6 @@ char *get_filepath(void);
 void check_if_open_file(main_t *storage);
 int is_visible_menu(int id, int const *list);
 char *chat_box(main_t *storage);
+void nav_top_layer(void *storage, int id);
+void nav_bottom_layer(void *storage, int id);
 #endif
