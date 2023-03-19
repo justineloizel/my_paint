@@ -28,6 +28,7 @@ void mask_layer(void *storage, UNUSED int id)
     if (((main_t *)storage)->board->actual_layer != NULL) {
         if (((main_t *)storage)->board->actual_layer->is_visible == 1) {
             ((main_t *)storage)->board->actual_layer->is_visible = 0;
+            printf("ici %i\n", ((main_t *)storage)->board->actual_layer->is_visible);
         } else {
             ((main_t *)storage)->board->actual_layer->is_visible = 1;
         }

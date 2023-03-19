@@ -68,6 +68,7 @@ void display_pop_up(main_t *storage)
 void paint(main_t *storage)
 {
     sfEvent event;
+    storage->list_menu->list_menu = add_visible_menu(storage->list_menu->list_menu, VISIBLE);
     while (sfRenderWindow_isOpen(storage->window.window)) {
         sfRenderWindow_clear(storage->window.window, BACKGROUND_COLOR);
         event_manager(event, storage);
