@@ -23,30 +23,39 @@ static void manage_event_bis(main_t *storage, sfEvent event)
 void event_manager(sfEvent event, main_t *storage)
 {
     while (sfRenderWindow_pollEvent(WINDOW.window, &event)) {
-        if (event.type == sfEvtClosed || storage->window.pop_up == 3)
+        if (event.type == sfEvtClosed || storage->window.pop_up == QUIT)
             sfRenderWindow_close(WINDOW.window);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
             sfRenderWindow_close(WINDOW.window);
         if (event.type == sfEvtMouseButtonPressed) {
             verify_menu_click(event.mouseButton, storage);
         }
-        if (event.type == sfEvtResized) {
+        if (event.type == sfEvtResized)
             recalcul_position_menu(storage);
-        }
-        manage_event_bis(storage, event);
-
     }
 }
 
 static void display_pop_up(main_t *storage)
 {
-    if (storage->window.pop_up == 1) {
+    sprites_t *sprite = get_sprite(storage->window.sprites, MANUAL_SPRITE);
+    if (storage->window.pop_up == MANUAL) {
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.manual, NULL);
+        sprite->sprite, NULL);
     }
-    if (storage->window.pop_up == 2) {
+    if (storage->window.pop_up == ABOUT) {
+        sprite = get_sprite(storage->window.sprites, ABOUT_SPRITE);
         sfRenderWindow_drawSprite(storage->window.window,
-        storage->window.about, NULL);
+        sprite->sprite, NULL);
+    }
+    if (storage->window.pop_up == SAVE) {
+        sprite = get_sprite(storage->window.sprites, SAVE_SPRITE);
+        sfRenderWindow_drawSprite(storage->window.window,
+        sprite->sprite, NULL);
+    }
+    if (storage->window.pop_up == OPEN) {
+        sprite = get_sprite(storage->window.sprites, OPEN_SPRITE);
+        sfRenderWindow_drawSprite(storage->window.window,
+        sprite->sprite, NULL);
     }
 }
 
@@ -56,7 +65,7 @@ void paint(main_t *storage)
     while (sfRenderWindow_isOpen(storage->window.window)) {
         sfRenderWindow_clear(storage->window.window,BACKGROUND_COLOR);
         event_manager(event, storage);
-        if (storage->window.cursor == 1)
+        if (storage->window.cursor == PENCIL)
             sfRenderWindow_drawSprite(storage->window.window,
             storage->palette->sprite, NULL);
         print_layer(storage);
@@ -68,6 +77,7 @@ void paint(main_t *storage)
         else
             sfRenderWindow_setMouseCursorVisible(storage->window.window, 1);
         sfRenderWindow_display(storage->window.window);
+        check_if_open_file(storage);
     }
 }
 

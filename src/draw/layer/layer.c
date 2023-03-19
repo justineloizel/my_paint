@@ -66,15 +66,17 @@ void delete_layer(layer_list_t *layer_list, framebuffer_t *target)
 void print_layer(main_t *storage)
 {
     framebuffer_t *fb = storage->board->layerList->head;
+    sprites_t *sprite = get_sprite(storage->window.sprites, LAYERS);
 
     if (fb == NULL)
         return;
+    if (sprite != NULL)
+        sfRenderWindow_drawSprite(storage->window.window, sprite->sprite,
+        NULL);
     sfRenderWindow_setView(WINDOW.window, BOARD->view);
     sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
     for (; fb != NULL; fb = fb->next) {
         sfRenderWindow_drawSprite(storage->window.window, fb->sprite, NULL);
     }
     sfRenderWindow_setView(WINDOW.window, WINDOW.view);
-    sfRenderWindow_drawSprite(storage->window.window, storage->window.layer,
-    NULL);
 }

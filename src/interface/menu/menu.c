@@ -9,29 +9,34 @@
 #include "paint.h"
 
 static const menu_store_t menu_list[] = {
-        {1, {1, "assets/file_button.png", {0, 0}, {1, 1}, {0, 0, 160, 40},
+        {FILE_MENU, {FILE_MENU, "assets/file_button.png", {0, 0}, {1, 1},
+        {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43},
+        button_menu_is_clicked}},
+
+        {EDIT, {EDIT, "assets/Edit.png", {160, 0}, {1, 1}, {0, 0, 160, 40},
         {0, 43, 160, 43},{0, 86, 160, 43}, button_menu_is_clicked}},
 
-        {2, {2, "assets/Edit.png", {160, 0}, {1, 1}, {0, 0, 160, 40},
+        {HELP, {HELP, "assets/Help.png", {320, 0}, {1, 1}, {0, 0, 160, 40},
         {0, 43, 160, 43},{0, 86, 160, 43}, button_menu_is_clicked}},
 
-        {3, {3, "assets/Help.png", {320, 0}, {1, 1}, {0, 0, 160, 40},
-        {0, 43, 160, 43},{0, 86, 160, 43}, button_menu_is_clicked}},
+        {POP_TOOL, {POP_TOOL, "assets/manual.png", {3000, 3000}, {1, 1},
+        {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
 
-        {4, {4, "assets/manual.png", {3000, 3000}, {1, 1}, {0, 0, 160, 40},
-        {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
+        {PENCIL_TOOL, {PENCIL_TOOL, "assets/pencil.png", {3000, 3000}, {1, 1},
+        {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
 
-        {5, {5, "assets/pencil.png", {3000, 3000}, {1, 1}, {0, 0, 160, 40},
-        {0, 43, 160, 43},{0, 86, 160, 43}, NULL}},
-
-        {6, {6, "assets/error.png", {1880, 0}, {1, 1}, {0, 0, 40, 40},
+        {QUIT, {QUIT, "assets/error.png", {1880, 0}, {1, 1}, {0, 0, 40, 40},
         {0, 43, 40, 40},{0, 0, 40, 40}, quit_paint}},
 
-        {7, {7, "assets/add_layer.png", {80, 950}, {1, 1}, {0, 0, 40, 40},
-        {0, 43, 40, 43},{0, 86, 40, 43}, layer_plus}},
+        {ADD_LAYER, {ADD_LAYER, "assets/add_layer.png", {80, 950}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 43},{0, 86, 40, 43}, layer_plus}},
 
-        {8, {8, "assets/less_layer.png", {280, 950}, {1, 1}, {0, 0, 40, 40},
-        {0, 43, 40, 43},{0, 86, 40, 43}, layer_less}},
+        {LESS_LAYER, {LESS_LAYER, "assets/less_layer.png", {280, 950}, {1, 1},
+        {0, 0, 40, 40}, {0, 43, 40, 43},{0, 86, 40, 43}, layer_less}},
+
+        {SAVE_POP, {SAVE_POP, "assets/save_file.png", {3000, 3000}, {1, 1},
+        {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43},
+        button_menu_is_clicked}},
 
 };
 

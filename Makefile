@@ -48,6 +48,8 @@ SRC += help.c
 SRC += brushes.c
 SRC += layer_menu.c
 SRC += get_input.c
+SRC += open_file.c
+SRC += sprites.c
 SRC += zoom.c
 SRC += chatbox.c
 SRC += chat_box_init_destroy.c
@@ -62,7 +64,7 @@ BUILD_DIR = build/
 
 NAME = my_paint
 
-DEBUG ?= 1
+DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g
 endif

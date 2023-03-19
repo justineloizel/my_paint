@@ -14,6 +14,26 @@
     #include <time.h>
     #include <math.h>
 
+typedef struct sprites_store {
+    int id;
+    char *filepath;
+    sfVector2f pos;
+} sprites_store_t;
+
+typedef struct sprites {
+    int id;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    struct sprites *next;
+    struct sprites *prev;
+} sprites_t;
+
+typedef struct list_sprites {
+    sprites_t *head;
+    sprites_t *tail;
+} list_sprites_t;
+
 typedef struct window {
     sfRenderWindow *window;
     sfSprite *pencil;
@@ -22,25 +42,17 @@ typedef struct window {
     sfSprite *eraser;
     sfTexture *eraser_texture;
     sfVector2f eraser_pos;
-    sfSprite *manual;
-    sfTexture *manual_texture;
-    sfVector2f manual_pos;
-    sfSprite *about;
-    sfTexture *about_texture;
-    sfVector2f about_pos;
-    sfSprite *layer;
-    sfTexture *layer_texture;
-    sfVector2f layer_pos;
-    sfSprite *shape;
-    sfTexture *shape_texture;
-    sfVector2f shape_pos;
     sfVideoMode mode;
     sfClock *clock;
     int cursor;
     int pop_up;
     int pen;
+    list_sprites_t *sprites
     sfView *view;
-}window_t;
+} window_t;
+
 window_t init_window(void);
 void free_window(window_t *window);
+list_sprites_t *create_sprites(void);
+sprites_t *get_sprite(list_sprites_t *list, int id);
 #endif /*WINDOW_H_*/
