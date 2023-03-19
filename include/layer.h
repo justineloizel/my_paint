@@ -37,4 +37,5 @@ typedef struct brush_store {
 void manager_delete_layer(main_t *storage, UNUSED int id);
 framebuffer_t *framebuffer_from_image(unsigned int width, unsigned int height,
 char *filepath);
+void check_top_menu(main_t *storage, int id);
 #endif /*LAYER_H_*///

@@ -33,6 +33,7 @@ void event_manager(sfEvent event, main_t *storage)
         if (event.type == sfEvtResized)
             recalcul_position_menu(storage);
     }
+    manage_event_bis(storage, event);
 }
 
 static void display_pop_up(main_t *storage)

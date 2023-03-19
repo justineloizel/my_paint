@@ -54,11 +54,10 @@ static void check_side_menu(main_t *storage, int id)
 void button_menu_is_clicked(void *storage, int id)
 {
     list_menu_t *list_menus = ((main_t *)storage)->list_menu;
-    int index = is_visible_menu(id, list_menus->list_menu);
+    int index = is_visible_menu(abs(id), list_menus->list_menu);
     menu_t *menu = list_menus->head;
     sfIntRect tmp;
-
-    for (; menu->id != id && menu != NULL; menu = menu->next);
+    for (; menu->id != abs(id) && menu != NULL; menu = menu->next);
     if (menu != NULL) {
         tmp = menu->menu_button->rec;
         menu->menu_button->rec = menu->menu_button->rec_click;
@@ -69,7 +68,8 @@ void button_menu_is_clicked(void *storage, int id)
         list_menus->list_menu =
         delete_visible_menu(list_menus->list_menu, index);
     } else {
-        list_menus->list_menu = add_visible_menu(list_menus->list_menu, id);
+        list_menus->list_menu = add_visible_menu(list_menus->list_menu, abs(id));
     }
     check_side_menu(((main_t *)storage), id);
+    check_top_menu(storage, id);
 }
