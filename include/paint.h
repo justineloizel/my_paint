@@ -34,7 +34,8 @@
     62, 62, 62, 1\
     }
     #define IS_NULL(X) (X == NULL) ? NULL : free(X);
-
+    #define USAGE "For launch the program execute ./my_paint\n"
+    #define NO_ARG "Please run the program without arguments"
 enum sprites_number {
         LAYERS,
         THICKNESS,

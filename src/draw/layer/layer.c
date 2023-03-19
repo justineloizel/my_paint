@@ -73,7 +73,6 @@ void print_layer(main_t *storage)
     if (sprite != NULL)
         sfRenderWindow_drawSprite(storage->window.window, sprite->sprite,
         NULL);
-    printf(" test : %i\n", BOARD->actual_layer->is_visible);
     sfRenderWindow_setView(WINDOW.window, BOARD->view);
     sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
     for (; fb != NULL; fb = fb->next) {

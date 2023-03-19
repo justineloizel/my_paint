@@ -40,12 +40,9 @@ static const menu_store_t menu_list[] = {
         {BOTTOM_NAV, {BOTTOM_NAV, "assets/bottom_nav.png", {190, 900}, {1, 1},
         {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, nav_bottom_layer}},
 
-        {NOT_VISIBLE, {NOT_VISIBLE, "assets/not_visible.png", {250, 900}, {1, 1},
+        {NOT_VISIBLE, {NOT_VISIBLE, "assets/not_visible.png", {250, 900},
+        {1, 1},
         {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, mask_layer}},
-
-        {VISIBLE, {VISIBLE, "assets/visible.png", {250, 900}, {1, 1},
-        {0, 0, 40, 40}, {0, 43, 40, 40},{0, 86, 40, 40}, mask_layer}},
-
 
         {SAVE_POP, {SAVE_POP, "assets/save_file.png", {3000, 3000}, {1, 1},
         {0, 0, 160, 40}, {0, 43, 160, 43},{0, 86, 160, 43},

@@ -7,6 +7,7 @@
 
 #include "myprintf.h"
 #include "paint.h"
+#include "my.h"
 
 static void manage_event_bis(main_t *storage, sfEvent event)
 {
@@ -68,7 +69,6 @@ void display_pop_up(main_t *storage)
 void paint(main_t *storage)
 {
     sfEvent event;
-    storage->list_menu->list_menu = add_visible_menu(storage->list_menu->list_menu, VISIBLE);
     while (sfRenderWindow_isOpen(storage->window.window)) {
         sfRenderWindow_clear(storage->window.window, BACKGROUND_COLOR);
         event_manager(event, storage);
@@ -88,8 +88,16 @@ void paint(main_t *storage)
     }
 }
 
-int main(void)
+int main(int ac, char **av)
 {
+    if (ac > 1) {
+        if (ac == 2 && my_strcmp("-h", av[1]) == 0) {
+            my_printf("%s%s\n", USAGE, NO_ARG);
+            return 0;
+        }
+        my_printf("%s\n", NO_ARG);
+        return 84;
+    }
     main_t *storage = init_storage();
     if (storage == NULL)
         return 84;
