@@ -72,6 +72,8 @@ enum menu_number {
         LESS_LAYER,
         TOP_NAV,
         BOTTOM_NAV,
+        VISIBLE,
+        NOT_VISIBLE,
         SAVE_POP,
 };
 typedef struct framebuffer_t    {
@@ -195,4 +197,5 @@ int is_visible_menu(int id, int const *list);
 char *chat_box(main_t *storage);
 void nav_top_layer(void *storage, int id);
 void nav_bottom_layer(void *storage, int id);
+void mask_layer(void *storage, UNUSED int id);
 #endif

@@ -60,7 +60,6 @@ static const button_store_t button_list[] = {
         {SAVE_POP,"assets/bmp_button.png", {1200, 400}, {1, 1},\
         {0, 0, 160, 40}, {0, 43, 160, 43}, {0, 86, 160, 43}, save_file_bmp},
 
-
 };
 
 void set_button(button_t *button)
