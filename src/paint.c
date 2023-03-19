@@ -8,26 +8,16 @@
 #include "myprintf.h"
 #include "paint.h"
 
-void manage_event_bis(main_t *storage, sfEvent event)
+static void manage_event_bis(main_t *storage, sfEvent event)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
-        add_layer(storage->board->layerList, NULL);
-        storage->board->actual_layer = storage->board->layerList->tail;
-    }
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
-        manager_delete_layer(storage, 0);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyN) {
-        add_layer(BOARD->layerList, "pokemon.jpg");
-        BOARD->actual_layer = BOARD->layerList->tail;
-    }
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ)
         zoom_out(storage);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp)
         zoom_in(storage);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyT)
-        chat_box(storage);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyR) {
+        storage->board->nb_zoom = 0;
         sfView_reset(BOARD->view, REC_BOARD);
+    }
 }
 
 void event_manager(sfEvent event, main_t *storage)
