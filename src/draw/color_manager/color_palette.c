@@ -26,3 +26,11 @@ color_palette_t *init_palette(void)
     sfSprite_setPosition(palette->sprite, PALETTE_POS);
     return palette;
 }
+
+void destroy_palette(color_palette_t *palette)
+{
+    sfSprite_destroy(palette->sprite);
+    sfTexture_destroy(palette->texture);
+    sfImage_destroy(palette->image);
+    free(palette);
+}

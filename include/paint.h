@@ -30,6 +30,9 @@
     #define PALETTE_POS (sfVector2f){\
     40, 80\
     }
+    #define BACKGROUND_COLOR (sfColor){\
+    62, 62, 62, 1\
+    }
     #define IS_NULL(X) (X == NULL) ? NULL : free(X);
 
 enum sprites_number {
@@ -79,6 +82,13 @@ typedef struct framebuffer_t    {
     struct framebuffer_t *prev;
 } framebuffer_t;
 
+typedef struct chat_box {
+    sfFont *font;
+    sfText *text;
+    sfRectangleShape *bg;
+    char *msg;
+} chat_box_t;
+
 typedef struct board {
     layer_list_t *layerList;
     framebuffer_t *actual_layer;
@@ -87,6 +97,8 @@ typedef struct board {
     int tools;
     sfClock *clock;
     sfRectangleShape *board;
+    short int nb_zoom;
+    sfView *view;
 }board_t;
 
 typedef struct color_palette {
@@ -119,7 +131,7 @@ void button_menu_is_clicked(void *storage, int id);
 void recalcul_position_menu(main_t *storage);
 void put_pixel(framebuffer_t *framebuffer, unsigned int x,\
 unsigned int y, sfColor color);
-sfVector2f get_valid_position(main_t *storage, sfVector2f position);
+sfVector2f get_valid_position(main_t *storage, sfVector2f position, int view);
 
         void draw_object(board_t *board, sfVector2i position);
 //init
@@ -141,6 +153,8 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void save_drawing_to_bmp(main_t *storage, int id);
         void fill_framebuffer(framebuffer_t *framebuffer, sfColor color);
         char *get_input(void);
+        void zoom_in(main_t *storage);
+        void zoom_out(main_t *storage);
 
 
 //destroy
@@ -148,6 +162,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
         void board_destroy(board_t *board);
         void delete_framebuffer(framebuffer_t *fb);
         void delete_layer(layer_list_t *layer_list, framebuffer_t *target);
+        void destroy_palette(color_palette_t *palette);
 
 //brush
         void draw_filled_square(board_t *board, sfVector2i position);
@@ -174,4 +189,5 @@ void thinner_brush(void *storage, int id);
 char *get_filepath(void);
 void check_if_open_file(main_t *storage);
 int is_visible_menu(int id, int const *list);
+char *chat_box(main_t *storage);
 #endif

@@ -47,8 +47,8 @@ typedef struct window {
     int cursor;
     int pop_up;
     int pen;
-    sfView const *view;
-    list_sprites_t *sprites;
+    list_sprites_t *sprites
+    sfView *view;
 } window_t;
 
 window_t init_window(void);

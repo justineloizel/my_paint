@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** B-MUL-200-REN-2-1-mypaint-tom.lefoix
 ** File description:
 ** paint.c
@@ -7,6 +7,18 @@
 
 #include "myprintf.h"
 #include "paint.h"
+
+static void manage_event_bis(main_t *storage, sfEvent event)
+{
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
+        zoom_out(storage);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp)
+        zoom_in(storage);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyR) {
+        storage->board->nb_zoom = 0;
+        sfView_reset(BOARD->view, REC_BOARD);
+    }
+}
 
 void event_manager(sfEvent event, main_t *storage)
 {
@@ -51,10 +63,8 @@ void paint(main_t *storage)
 {
     sfEvent event;
     while (sfRenderWindow_isOpen(storage->window.window)) {
-        sfRenderWindow_clear(storage->window.window,
-        (sfColor){62, 62, 62, 1});
+        sfRenderWindow_clear(storage->window.window,BACKGROUND_COLOR);
         event_manager(event, storage);
-        sfRenderWindow_drawRectangleShape(WINDOW.window, BOARD->board, NULL);
         if (storage->window.cursor == PENCIL)
             sfRenderWindow_drawSprite(storage->window.window,
             storage->palette->sprite, NULL);

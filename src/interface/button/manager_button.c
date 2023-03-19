@@ -76,11 +76,10 @@ void recalcul_position_menu(main_t *storage)
 {
     sfVector2u screen_size = sfRenderWindow_getSize(storage->window.window);
     menu_t *menu = storage->list_menu->head;
-    sfView *view = sfView_createFromRect((sfFloatRect){0, 0,
+    WINDOW.view = sfView_createFromRect((sfFloatRect){0, 0,
     (float)screen_size.x, (float)screen_size.y});
 
-    sfRenderWindow_setView(WINDOW.window, (sfView const *)view);
-    sfView_destroy(view);
+    sfRenderWindow_setView(WINDOW.window, (sfView const *)WINDOW.view);
 }
 
 //    for (; menu != NULL; menu = menu->next) {
