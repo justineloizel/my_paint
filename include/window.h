@@ -14,7 +14,7 @@
     #include <time.h>
     #include <math.h>
     #define POS_CHAT_BOX (sfVector2f){\
-    1000, 620\
+    1020, 620\
     }
     #define SIZE_CHAT_BOX (sfVector2f){\
     400, 35\
