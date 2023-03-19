@@ -19,7 +19,8 @@ void zoom_in(main_t *storage)
     }
 }
 
-void zoom_out(main_t *storage) {
+void zoom_out(main_t *storage)
+{
     if (BOARD->nb_zoom > -14) {
         sfView_zoom(BOARD->view, 1.2f);
         BOARD->nb_zoom -= 1;

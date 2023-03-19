@@ -19,6 +19,7 @@ VPATH += src/draw/save
 VPATH += src/draw/brush
 VPATH += src/init_destroy
 VPATH += src/interface/zoom
+VPATH += src/chatbox
 VPATH += src/draw/color_manager
 
 SRC += paint.c
@@ -48,6 +49,8 @@ SRC += brushes.c
 SRC += layer_menu.c
 SRC += get_input.c
 SRC += zoom.c
+SRC += chatbox.c
+SRC += chat_box_init_destroy.c
 
 CFLAGS = -I include/ -Wall -Wextra
 
