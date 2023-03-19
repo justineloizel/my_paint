@@ -92,7 +92,7 @@ int main(int ac, char **av)
 {
     if (ac > 1) {
         if (ac == 2 && my_strcmp("-h", av[1]) == 0) {
-            my_printf("%s%s\n", USAGE, NO_ARG);
+            my_printf("%s%s\n%s\n", USAGE, COMMAND, NO_ARG);
             return 0;
         }
         my_printf("%s\n", NO_ARG);
