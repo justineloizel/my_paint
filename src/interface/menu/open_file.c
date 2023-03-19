@@ -29,11 +29,15 @@ char *get_filepath(void)
 void check_if_open_file(main_t *storage)
 {
     char *filepath;
+    list_menu_t *list_menus = storage->list_menu;
+    int index = is_visible_menu(POP_TOOL, list_menus->list_menu);
 
     if (storage->window.pop_up == OPEN) {
         filepath = chat_box(storage);
         if (filepath == NULL) {
             storage->window.pop_up = NO_POP;
+            storage->list_menu->list_menu =
+            delete_visible_menu(storage->list_menu->list_menu, index);
             return;
         }
         add_layer(BOARD->layerList, filepath);
