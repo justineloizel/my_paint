@@ -1,9 +1,9 @@
 # my_paint
-Paint remake - Duo graphic project as 1st year at Epitech <br /> 
-3 weeks
+Paint remake - Duo graphic project <br />
+1st year at Epitech <br /> 
 
 ## Authors
-[Tom Lefoix](https://github.com/tlmx25)
+[Tom Lefoix](https://github.com/tlmx25) <br />
 [Justine Loizel](https://github.com/justineloizel)
 
 ## Screenshot
