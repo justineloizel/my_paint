@@ -14,7 +14,6 @@ Paint remake - Duo graphic project <br />
 ```
 make
 ```
-
 ## Usage
 ```
 ./my_paint
